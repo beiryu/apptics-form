@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Manrope, DM_Mono } from 'next/font/google';
+import { Inter, Manrope, DM_Mono, Geist } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
 
@@ -10,39 +10,10 @@ const inter = Inter({
   display: 'swap',
 });
 
-const manrope = Manrope({
-  variable: '--font-manrope',
+const geist = Geist({
+  variable: '--font-geist',
   subsets: ['latin'],
-  weight: ['600', '700'],
-  display: 'swap',
-});
-
-const dmMono = DM_Mono({
-  variable: '--font-dm-mono',
-  subsets: ['latin'],
-  weight: ['500'],
-  display: 'swap',
-});
-
-const roobertTrial = localFont({
-  variable: '--font-roobert-trial',
-  src: [
-    {
-      path: '../../public/fonts/RoobertTRIAL-Medium.otf',
-      weight: '500',
-      style: 'medium',
-    },
-    {
-      path: '../../public/fonts/RoobertTRIAL-SemiBold.otf',
-      weight: '600',
-      style: 'semibold',
-    },
-    {
-      path: '../../public/fonts/RoobertTRIAL-Bold.otf',
-      weight: '700',
-      style: 'bold',
-    },
-  ],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
 });
 
@@ -120,9 +91,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} ${manrope.variable} ${dmMono.variable} ${roobertTrial.variable} antialiased`}
-      >
+      <body className={`${inter.variable} ${geist.variable} antialiased`}>
         {children}
       </body>
     </html>
