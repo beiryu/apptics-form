@@ -1,5 +1,5 @@
-import SimpleSwap from '@/components/SimpleSwap';
+import Step01 from '@/components/Step01';
 
 export default function Home() {
-  return <SimpleSwap />;
+  return <Step01 />;
 }

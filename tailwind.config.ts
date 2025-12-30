@@ -7,7 +7,25 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        whitesmoke: {
+          '100': '#f5f7fa',
+          '200': '#f1f1f1',
+        },
+        white: '#fff',
+        gainsboro: '#d3d9e5',
+        dimgray: '#5a5d66',
+        darkslategray: '#292d33',
+        slategray: '#6b7480',
+        black: '#000',
+      },
+      fontFamily: {
+        'plus-jakarta-sans': 'Plus Jakarta Sans',
+        geist: 'Geist',
+        inter: 'Inter',
+      },
+    },
   },
   plugins: [],
 };

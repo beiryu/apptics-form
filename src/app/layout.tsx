@@ -47,8 +47,70 @@ const roobertTrial = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'CogPiece - Swap',
-  description: 'Trade DeFi assets privately with MEV protection.',
+  title: {
+    default: 'CogPiece - Private DeFi Trading Platform',
+    template: '%s | CogPiece',
+  },
+  description:
+    'Trade DeFi assets privately with MEV protection, privacy-first architecture, and lightning-fast execution. Experience secure, anonymous trading on CogPiece.',
+  keywords: [
+    'DeFi',
+    'private trading',
+    'MEV protection',
+    'cryptocurrency',
+    'blockchain',
+    'privacy',
+    'trading platform',
+  ],
+  authors: [{ name: 'CogPiece Team' }],
+  creator: 'CogPiece',
+  publisher: 'CogPiece',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://cog-piece.vercel.app'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://cog-piece.vercel.app',
+    title: 'CogPiece - Private DeFi Trading Platform',
+    description:
+      'Trade DeFi assets privately with MEV protection, privacy-first architecture, and lightning-fast execution.',
+    siteName: 'CogPiece',
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'CogPiece - Private DeFi Trading Platform',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CogPiece - Private DeFi Trading Platform',
+    description:
+      'Trade DeFi assets privately with MEV protection, privacy-first architecture, and lightning-fast execution.',
+    images: ['/og.png'],
+    creator: '@cogpiece',
+    site: '@cogpiece',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
