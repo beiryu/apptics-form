@@ -19,11 +19,22 @@ const config: Config = {
         darkslategray: '#292d33',
         slategray: '#6b7480',
         black: '#000',
+        gray: 'rgba(0, 0, 0, 0.1)',
+        dodgerblue: {
+          '100': 'rgba(0, 115, 217, 0.5)',
+          '200': 'rgba(0, 115, 217, 0.1)',
+        },
       },
       fontFamily: {
         'plus-jakarta-sans': 'Plus Jakarta Sans',
         geist: 'Geist',
         inter: 'Inter',
+      },
+      spacing: {
+        'num-1': '0.8px solid #000',
+      },
+      borderRadius: {
+        'num-50': '50%',
       },
     },
   },
