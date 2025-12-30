@@ -1,0 +1,204 @@
+import Image from 'next/image';
+import ProgressIndicators from './ProgressIndicators';
+
+interface Step03Props {
+  onNext?: () => void;
+}
+
+const UncheckIcon = () => (
+  <svg
+    width="21"
+    height="21"
+    viewBox="0 0 21 21"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      cx="10.5"
+      cy="10.5"
+      r="9.75"
+      stroke="#292D33"
+      strokeOpacity="0.1"
+      strokeWidth="1.5"
+    />
+  </svg>
+);
+
+const CheckIcon = () => (
+  <svg
+    width="21"
+    height="21"
+    viewBox="0 0 21 21"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      cx="10.5"
+      cy="10.5"
+      r="9.75"
+      fill="#4EA8F7"
+      stroke="#0073D9"
+      strokeWidth="1.5"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M15.225 7.14379C15.5598 7.43675 15.5938 7.94567 15.3008 8.28049L9.66197 14.7249C9.51512 14.8927 9.30535 14.9921 9.08253 14.9996C8.85969 15.007 8.64375 14.9217 8.48609 14.764L6.06943 12.3474C5.75485 12.0328 5.75485 11.5227 6.06943 11.2082C6.38403 10.8936 6.89407 10.8936 7.20866 11.2082L9.01647 13.016L14.0883 7.21956C14.3813 6.88474 14.8903 6.85081 15.225 7.14379Z"
+      fill="white"
+    />
+  </svg>
+);
+
+export default function Step03({ onNext }: Step03Props) {
+  return (
+    <div className="relative w-full h-screen flex flex-col rounded-num-16 bg-whitesmoke-100 border-whitesmoke-200 border-solid border-[1px] box-border overflow-hidden text-center text-[42px] text-darkslategray-100 font-geist">
+      {/* Header: Logo */}
+      <header className="flex items-center justify-center pt-6">
+        <Image
+          src="/step/logo.png"
+          className="w-24 h-[30px] object-cover"
+          width={96}
+          height={30}
+          sizes="100vw"
+          alt="Logo"
+        />
+      </header>
+
+      {/* Main Content Section */}
+      <main className="absolute  top-40 left-0 right-0 flex items-center justify-center w-full px-4">
+        <section className="flex flex-col items-center justify-between gap-5 w-full max-w-5xl">
+          {/* Question and Options */}
+          <div className="flex flex-col items-center gap-8">
+            {/* Question Header */}
+            <div className="flex flex-col items-center gap-2.5">
+              <h1 className="w-full tracking-[-0.07em] leading-[48px] font-medium">
+                What&apos;s holding your growth back the most right now?
+              </h1>
+              <p className="w-full text-[16px] tracking-[-0.02em] leading-4 font-inter text-slategray">
+                (select all that apply)
+              </p>
+            </div>
+
+            {/* Options Grid */}
+            <div className="flex flex-col items-center justify-center gap-8 text-left text-num-22_5 font-inter w-full">
+              <div className="grid grid-cols-2 gap-4 w-full max-w-3xl">
+                {/* Option 1 */}
+                <div className="w-full rounded-num-16 bg-dodgerblue-200 border-dodgerblue-100 border-solid border-[2px] box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5">
+                  <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
+                    💳
+                  </div>
+                  <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                    We don&apos;t have subscriptions or MRR setup yet
+                  </div>
+                  <CheckIcon />
+                </div>
+
+                {/* Option 2 */}
+                <div className="w-full rounded-num-16 [background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5">
+                  <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
+                    📉
+                  </div>
+                  <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                    We can&apos;t produce enough winning creatives / ads
+                    don&apos;t scale profitably
+                  </div>
+                  <UncheckIcon />
+                </div>
+
+                {/* Option 3 */}
+                <div className="w-full rounded-num-16 [background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5">
+                  <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
+                    🚫
+                  </div>
+                  <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                    Chargebacks or failed payments are killing margins
+                  </div>
+                  <UncheckIcon />
+                </div>
+
+                {/* Option 4 */}
+                <div className="w-full rounded-num-16 [background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5">
+                  <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
+                    🏦
+                  </div>
+                  <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                    We need payment processing
+                  </div>
+                  <UncheckIcon />
+                </div>
+
+                {/* Option 5 */}
+                <div className="w-full rounded-num-16 [background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5">
+                  <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
+                    🛑
+                  </div>
+                  <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                    We just got banned on Shopify payments/Stripe
+                  </div>
+                  <UncheckIcon />
+                </div>
+
+                {/* Option 6 */}
+                <div className="w-full rounded-num-16 [background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5">
+                  <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
+                    💰
+                  </div>
+                  <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                    We aren&apos;t maximizing for AOV & LTV
+                  </div>
+                  <UncheckIcon />
+                </div>
+
+                {/* Option 7 */}
+                <div className="w-full rounded-num-16 [background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5">
+                  <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
+                    🔐
+                  </div>
+                  <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                    We want data security and ownership of our subscribers (MRR)
+                  </div>
+                  <UncheckIcon />
+                </div>
+
+                {/* Option 8 */}
+                <div className="w-full rounded-num-16 [background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5">
+                  <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
+                    📦
+                  </div>
+                  <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                    We have operational bottlenecks (fulfillment, shipping,
+                    sourcing issues)
+                  </div>
+                  <UncheckIcon />
+                </div>
+              </div>
+
+              {/* Next Button */}
+              <button
+                className="w-[350px] h-12 shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center py-2.5 px-num-20 gap-[5px] cursor-pointer text-center text-[16px] text-white"
+                onClick={onNext}
+              >
+                <span className="tracking-num--0_03 leading-7 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                  Next Question
+                </span>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8.50592 4.41076C8.1805 4.08533 7.653 4.08533 7.3275 4.41076C7.00208 4.7362 7.00208 5.26371 7.3275 5.58915L11.7383 9.99994L7.3275 14.4108C7.00208 14.7362 7.00208 15.2637 7.3275 15.5892C7.653 15.9146 8.1805 15.9146 8.50592 15.5892L13.5059 10.5892C13.8314 10.2637 13.8314 9.73619 13.5059 9.41077L8.50592 4.41076Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <ProgressIndicators currentStep={3} />
+    </div>
+  );
+}

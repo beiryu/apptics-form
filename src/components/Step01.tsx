@@ -20,8 +20,8 @@ export default function Step01({ onNext }: Step01Props) {
       </header>
 
       {/* Main Content Section */}
-      <main className="flex-1 flex items-center justify-center w-full max-w-[1000px] px-4">
-        <section className="flex flex-col items-center gap-8 w-full">
+      <main className="absolute top-40 left-0 right-0 flex items-center justify-center w-full px-4">
+        <section className="flex flex-col items-center gap-8 w-full max-w-[1000px]">
           {/* Badge */}
           <div className="shadow-[0px_4px_4px_-1px_rgba(66,_90,_108,_0.06),_0px_20px_22px_-6px_rgba(36,_40,_51,_0.04)] rounded-[14px] bg-white border-gainsboro border-solid border-[0.5px] overflow-hidden flex items-center py-2 px-4 shrink-0 font-inter">
             <div className="tracking-[-0.02em] leading-5 capitalize">

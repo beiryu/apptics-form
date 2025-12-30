@@ -31,10 +31,27 @@ const config: Config = {
         inter: 'Inter',
       },
       spacing: {
-        'num-1': '0.8px solid #000',
+        '[220px]': '200px',
+        'num-50': '50px',
+        'num-1': '1px solid #000',
+        'num-2': '0.8px solid #000',
       },
       borderRadius: {
         'num-50': '50%',
+        'num-16': '16px',
+      },
+      letterSpacing: {
+        'num--0_03': '-0.03em',
+      },
+      padding: {
+        'num-20': '20px',
+        'num-12': '12px',
+      },
+      fontSize: {
+        'num-15': '15px',
+      },
+      lineHeight: {
+        'num-22': '22px',
       },
     },
   },
