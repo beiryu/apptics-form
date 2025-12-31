@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import Step01 from '@/components/Step01';
@@ -15,7 +15,7 @@ import Step09 from '@/components/Step09';
 import Step10 from '@/components/Step10';
 import Step11 from '@/components/Step11';
 
-export default function Home() {
+function StepNavigator() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -44,7 +44,7 @@ export default function Home() {
         : pathname;
       router.replace(newUrl, { scroll: false });
     }
-  }, [currentStep, pathname, router]);
+  }, [currentStep, pathname, router, searchParams]);
 
   // Sync state when URL changes (e.g., browser back/forward)
   useEffect(() => {
@@ -136,5 +136,19 @@ export default function Home() {
         </motion.div>
       </AnimatePresence>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense
+      fallback={
+        <div className="relative w-full h-screen overflow-hidden flex items-center justify-center">
+          <div className="text-center">Loading...</div>
+        </div>
+      }
+    >
+      <StepNavigator />
+    </Suspense>
   );
 }
