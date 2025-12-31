@@ -7,7 +7,7 @@ export default function Step12({ onNext }: Step12Props) {
   return (
     <div className="relative w-full h-screen flex flex-col rounded-num-16 bg-whitesmoke-100 border-whitesmoke-200 border-solid border-[1px] box-border overflow-hidden text-center text-[42px] text-darkslategray-100 font-inter">
       {/* Main Content Section */}
-      <main className="flex-1 flex items-center justify-center w-full px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 md:pt-16 pb-20 sm:pb-24 md:pb-32 lg:pb-[200px] overflow-y-auto">
+      <main className="flex-1 flex items-start justify-center w-full px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 md:pt-32 lg:pt-[200px] pb-20 sm:pb-24 md:pb-32 lg:pb-[200px] overflow-y-auto">
         <section className="flex flex-col items-center justify-center gap-6 sm:gap-8 w-full max-w-4xl">
           {/* Header Section */}
           <header className="flex flex-col items-center gap-4 sm:gap-6 w-full">
