@@ -69,6 +69,13 @@ function StepNavigator() {
     }
   };
 
+  const handleStepClick = (step: number) => {
+    if (step >= 1 && step <= 11 && step !== currentStep) {
+      setDirection(step > currentStep ? 1 : -1);
+      setCurrentStep(step);
+    }
+  };
+
   // Animation variants for step transitions
   const stepVariants = {
     enter: (direction: number) => ({
@@ -93,29 +100,29 @@ function StepNavigator() {
   const renderStep = () => {
     switch (currentStep) {
       case 1:
-        return <Step01 onNext={handleNextStep} />;
+        return <Step01 onNext={handleNextStep} onStepClick={handleStepClick} />;
       case 2:
-        return <Step02 onNext={handleNextStep} />;
+        return <Step02 onNext={handleNextStep} onStepClick={handleStepClick} />;
       case 3:
-        return <Step03 onNext={handleNextStep} />;
+        return <Step03 onNext={handleNextStep} onStepClick={handleStepClick} />;
       case 4:
-        return <Step04 onNext={handleNextStep} />;
+        return <Step04 onNext={handleNextStep} onStepClick={handleStepClick} />;
       case 5:
-        return <Step05 onNext={handleNextStep} />;
+        return <Step05 onNext={handleNextStep} onStepClick={handleStepClick} />;
       case 6:
-        return <Step06 onNext={handleNextStep} />;
+        return <Step06 onNext={handleNextStep} onStepClick={handleStepClick} />;
       case 7:
-        return <Step07 onNext={handleNextStep} />;
+        return <Step07 onNext={handleNextStep} onStepClick={handleStepClick} />;
       case 8:
-        return <Step08 onNext={handleNextStep} />;
+        return <Step08 onNext={handleNextStep} onStepClick={handleStepClick} />;
       case 9:
-        return <Step09 onNext={handleNextStep} />;
+        return <Step09 onNext={handleNextStep} onStepClick={handleStepClick} />;
       case 10:
-        return <Step10 onNext={handleNextStep} />;
+        return <Step10 onNext={handleNextStep} onStepClick={handleStepClick} />;
       case 11:
-        return <Step11 onNext={handleNextStep} />;
+        return <Step11 onNext={handleNextStep} onStepClick={handleStepClick} />;
       default:
-        return <Step01 onNext={handleNextStep} />;
+        return <Step01 onNext={handleNextStep} onStepClick={handleStepClick} />;
     }
   };
 

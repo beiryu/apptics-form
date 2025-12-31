@@ -1,52 +1,41 @@
-import Image from 'next/image';
 import ProgressIndicators from './ProgressIndicators';
 
 interface Step05Props {
   onNext?: () => void;
+  onStepClick?: (step: number) => void;
 }
 
-export default function Step05({ onNext }: Step05Props) {
+export default function Step05({ onNext, onStepClick }: Step05Props) {
   return (
     <div className="relative w-full h-screen flex flex-col rounded-num-16 bg-whitesmoke-100 border-whitesmoke-200 border-solid border-[1px] box-border overflow-hidden text-center text-[42px] text-darkslategray font-geist">
-      {/* Header: Logo */}
-      <header className="flex items-center justify-center pt-6">
-        <Image
-          src="/step/logo.png"
-          className="w-24 h-[30px] object-cover"
-          width={96}
-          height={30}
-          sizes="100vw"
-          alt="Logo"
-        />
-      </header>
-
       {/* Main Content Section */}
-      <main className="absolute top-40 left-0 right-0 flex items-center justify-center w-full px-4">
-        <section className="flex flex-col items-center justify-between gap-5 w-full max-w-4xl">
+      <main className="flex-1 flex items-center justify-center w-full px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 md:pt-16 pb-20 sm:pb-24 md:pb-32 lg:pb-[200px] overflow-y-auto">
+        <section className="flex flex-col items-center justify-between gap-4 sm:gap-5 w-full max-w-4xl">
           {/* Question and Options */}
-          <div className="flex flex-col items-center gap-8">
+          <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8">
             {/* Question Header */}
-            <div className="flex flex-col items-center gap-2.5">
-              <h1 className="w-full tracking-[-0.07em] leading-[48px] font-medium">
+            <div className="flex flex-col items-center gap-2 sm:gap-2.5">
+              <h1 className="w-full text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] tracking-[-0.07em] leading-[1.1] sm:leading-[1.15] md:leading-[1.2] lg:leading-[48px] font-medium px-2 sm:px-0">
                 What&apos;s your current monthly revenue?
               </h1>
-              <p className="w-full text-base tracking-[-0.02em] leading-4 font-inter text-slategray">
+              <p className="w-full text-sm sm:text-base tracking-[-0.02em] leading-4 font-inter text-slategray">
                 (select only one)
               </p>
             </div>
 
             {/* Options Grid */}
-            <div className="flex flex-col items-center justify-center text-left text-num-15 text-white font-inter">
-              <div className="flex flex-col items-center justify-center gap-4">
+            <div className="flex flex-col items-center justify-center text-left text-sm sm:text-num-15 text-white font-inter">
+              <div className="flex flex-col items-center justify-center gap-3 sm:gap-4">
                 {/* First Row */}
-                <div className="flex items-start gap-4">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4 w-full">
                   <button
                     onClick={onNext}
-                    className="w-[220px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-num-20 gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
+                    className="w-full sm:w-[220px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-3 sm:p-4 md:p-num-20 gap-2 sm:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                   >
                     <svg
                       width="50"
                       height="50"
+                      className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
                       viewBox="0 0 50 50"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -59,13 +48,13 @@ export default function Step05({ onNext }: Step05Props) {
                       />
                     </svg>
 
-                    <div className="tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                    <div className="text-xs sm:text-sm tracking-num--0_03 leading-5 sm:leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-center">
                       Under $50K monthly
                     </div>
                   </button>
                   <button
                     onClick={onNext}
-                    className="w-[220px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-num-20 gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
+                    className="w-full sm:w-[220px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-3 sm:p-4 md:p-num-20 gap-2 sm:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                   >
                     <svg
                       width="50"
@@ -73,6 +62,7 @@ export default function Step05({ onNext }: Step05Props) {
                       viewBox="0 0 50 50"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
                     >
                       <path
                         d="M29.0816 10.5407C19.7479 11.6157 12.5003 19.5448 12.5003 29.1667C12.5003 30.9581 12.7516 32.691 13.2208 34.3319C7.90853 32.1533 4.16699 26.9304 4.16699 20.8333C4.16699 12.7792 10.6962 6.25 18.7503 6.25C22.7872 6.25 26.4412 7.89029 29.0816 10.5407Z"
@@ -84,13 +74,13 @@ export default function Step05({ onNext }: Step05Props) {
                       />
                     </svg>
 
-                    <div className="whitespace-nowrap tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                    <div className="text-xs sm:text-sm tracking-num--0_03 leading-5 sm:leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-center">
                       $50K - $150K monthly
                     </div>
                   </button>
                   <button
                     onClick={onNext}
-                    className="w-[220px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-num-20 gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
+                    className="w-full sm:w-[220px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-3 sm:p-4 md:p-num-20 gap-2 sm:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                   >
                     <svg
                       width="50"
@@ -98,6 +88,7 @@ export default function Step05({ onNext }: Step05Props) {
                       viewBox="0 0 50 50"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
                     >
                       <path
                         fillRule="evenodd"
@@ -115,16 +106,16 @@ export default function Step05({ onNext }: Step05Props) {
                       />
                     </svg>
 
-                    <div className="tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] shrink-0">
+                    <div className="text-xs sm:text-sm tracking-num--0_03 leading-5 sm:leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-center">
                       $150K - $500K monthly
                     </div>
                   </button>
                 </div>
                 {/* Second Row */}
-                <div className="flex items-start gap-4">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4 w-full">
                   <button
                     onClick={onNext}
-                    className="w-[220px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-num-20 gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
+                    className="w-full sm:w-[220px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-3 sm:p-4 md:p-num-20 gap-2 sm:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                   >
                     <svg
                       width="50"
@@ -132,6 +123,7 @@ export default function Step05({ onNext }: Step05Props) {
                       viewBox="0 0 50 50"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
                     >
                       <path
                         fillRule="evenodd"
@@ -141,12 +133,12 @@ export default function Step05({ onNext }: Step05Props) {
                       />
                     </svg>
 
-                    <div className="tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                    <div className="text-xs sm:text-sm tracking-num--0_03 leading-5 sm:leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-center">
                       $500K - $2M monthly
                     </div>
                   </button>
                   <button
-                    className="w-[220px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-num-20 gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
+                    className="w-full sm:w-[220px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-3 sm:p-4 md:p-num-20 gap-2 sm:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                     onClick={onNext}
                   >
                     <svg
@@ -155,6 +147,7 @@ export default function Step05({ onNext }: Step05Props) {
                       viewBox="0 0 50 50"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
                     >
                       <path
                         d="M8.0234 39.6462C6.86302 37.8967 6.25002 35.7875 6.25 33.3333C7.18765 26.7698 11.5013 21.8944 16.1521 17.1875H34.0669C38.4177 21.8033 42.8035 26.7083 43.75 33.3333C43.75 35.7875 43.1371 37.8967 41.9767 39.6462C40.8244 41.3837 39.2142 42.6438 37.405 43.5469C33.8475 45.3225 29.2885 45.8333 25 45.8333C20.7114 45.8333 16.1524 45.3225 12.5951 43.5469C10.7858 42.6438 9.17573 41.3837 8.0234 39.6462Z"
@@ -166,13 +159,13 @@ export default function Step05({ onNext }: Step05Props) {
                       />
                     </svg>
 
-                    <div className="tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                    <div className="text-xs sm:text-sm tracking-num--0_03 leading-5 sm:leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-center">
                       $2M - $5M monthly
                     </div>
                   </button>
                   <button
                     onClick={onNext}
-                    className="w-[220px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-num-20 gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
+                    className="w-full sm:w-[220px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-3 sm:p-4 md:p-num-20 gap-2 sm:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                   >
                     <svg
                       width="50"
@@ -180,6 +173,7 @@ export default function Step05({ onNext }: Step05Props) {
                       viewBox="0 0 50 50"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
                     >
                       <path
                         fillRule="evenodd"
@@ -188,7 +182,7 @@ export default function Step05({ onNext }: Step05Props) {
                         fill="#47DA12"
                       />
                     </svg>
-                    <div className="tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                    <div className="text-xs sm:text-sm tracking-num--0_03 leading-5 sm:leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-center">
                       $5M - $10M+ monthly
                     </div>
                   </button>
@@ -198,7 +192,7 @@ export default function Step05({ onNext }: Step05Props) {
           </div>
         </section>
       </main>
-      <ProgressIndicators currentStep={5} />
+      <ProgressIndicators currentStep={5} onStepClick={onStepClick} />
     </div>
   );
 }

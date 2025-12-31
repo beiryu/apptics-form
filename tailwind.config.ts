@@ -24,6 +24,10 @@ const config: Config = {
           '100': 'rgba(0, 115, 217, 0.5)',
           '200': 'rgba(0, 115, 217, 0.1)',
         },
+        cornflowerblue: {
+          '100': '#4ea8f7',
+          '200': 'rgba(78, 168, 247, 0.1)',
+        },
       },
       fontFamily: {
         'plus-jakarta-sans': 'Plus Jakarta Sans',
@@ -52,6 +56,9 @@ const config: Config = {
       },
       lineHeight: {
         'num-22': '22px',
+      },
+      opacity: {
+        'num-0_5': '0.5',
       },
     },
   },

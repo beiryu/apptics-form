@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Image from 'next/image';
 import ProgressIndicators from './ProgressIndicators';
 
 interface Step03Props {
   onNext?: () => void;
+  onStepClick?: (step: number) => void;
 }
 
 const UncheckIcon = () => (
@@ -50,9 +50,9 @@ const CheckIcon = () => (
   </svg>
 );
 
-export default function Step03({ onNext }: Step03Props) {
+export default function Step03({ onNext, onStepClick }: Step03Props) {
   const [selectedOptions, setSelectedOptions] = useState<Set<number>>(
-    new Set([1])
+    new Set()
   );
 
   const toggleOption = (optionId: number) => {
@@ -112,55 +112,45 @@ export default function Step03({ onNext }: Step03Props) {
 
   return (
     <div className="relative w-full h-screen flex flex-col rounded-num-16 bg-whitesmoke-100 border-whitesmoke-200 border-solid border-[1px] box-border overflow-hidden text-center text-[42px] text-darkslategray-100 font-geist">
-      {/* Header: Logo */}
-      <header className="flex items-center justify-center pt-6">
-        <Image
-          src="/step/logo.png"
-          className="w-24 h-[30px] object-cover"
-          width={96}
-          height={30}
-          sizes="100vw"
-          alt="Logo"
-        />
-      </header>
-
       {/* Main Content Section */}
-      <main className="absolute  top-40 left-0 right-0 flex items-center justify-center w-full px-4">
-        <section className="flex flex-col items-center justify-between gap-5 w-full max-w-5xl">
+      <main className="flex-1 flex items-center justify-center w-full px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 md:pt-16 pb-20 sm:pb-24 md:pb-32 lg:pb-[200px] overflow-y-auto">
+        <section className="flex flex-col items-center justify-between gap-4 sm:gap-5 w-full max-w-5xl">
           {/* Question and Options */}
-          <div className="flex flex-col items-center gap-8">
+          <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8">
             {/* Question Header */}
-            <div className="flex flex-col items-center gap-2.5">
-              <h1 className="w-full tracking-[-0.07em] leading-[48px] font-medium">
+            <div className="flex flex-col items-center gap-2 sm:gap-2.5">
+              <h1 className="w-full text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] tracking-[-0.07em] leading-[1.1] sm:leading-[1.15] md:leading-[1.2] lg:leading-[48px] font-medium px-2 sm:px-0">
                 What&apos;s holding your growth back the most right now?
               </h1>
-              <p className="w-full text-[16px] tracking-[-0.02em] leading-4 font-inter text-slategray">
+              <p className="w-full text-sm sm:text-base tracking-[-0.02em] leading-4 font-inter text-slategray">
                 (select all that apply)
               </p>
             </div>
 
             {/* Options Grid */}
-            <div className="flex flex-col items-center justify-center gap-8 text-left text-num-22_5 font-inter w-full">
-              <div className="grid grid-cols-2 gap-4 w-full max-w-3xl">
+            <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8 text-left text-base sm:text-lg md:text-num-22_5 font-inter w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full max-w-3xl">
                 {options.map(option => {
                   const isSelected = selectedOptions.has(option.id);
                   return (
                     <button
                       key={option.id}
                       onClick={() => toggleOption(option.id)}
-                      className={`w-full rounded-num-16 box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5 cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-sm active:scale-[0.99] ${
+                      className={`w-full min-h-[44px] rounded-num-16 box-border overflow-hidden flex items-center py-2 sm:py-num-12 px-3 sm:px-num-20 gap-2 sm:gap-2.5 cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-sm active:scale-[0.99] ${
                         isSelected
                           ? 'bg-dodgerblue-200 border-dodgerblue-100 border-solid border-[2px]'
                           : '[background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] hover:bg-opacity-40'
                       }`}
                     >
-                      <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
+                      <div className="text-lg sm:text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)] shrink-0">
                         {option.icon}
                       </div>
-                      <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-left">
+                      <div className="flex-1 text-sm sm:text-num-15 tracking-num--0_03 leading-5 sm:leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-left">
                         {option.text}
                       </div>
-                      {isSelected ? <CheckIcon /> : <UncheckIcon />}
+                      <div className="shrink-0">
+                        {isSelected ? <CheckIcon /> : <UncheckIcon />}
+                      </div>
                     </button>
                   );
                 })}
@@ -168,10 +158,10 @@ export default function Step03({ onNext }: Step03Props) {
 
               {/* Next Button */}
               <button
-                className="w-[350px] h-12 shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center py-2.5 px-num-20 gap-[5px] cursor-pointer text-center text-[16px] text-white transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
+                className="w-full sm:w-[350px] min-h-[44px] h-auto sm:h-12 shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center py-2.5 px-4 sm:px-num-20 gap-[5px] cursor-pointer text-center text-sm sm:text-[16px] text-white transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                 onClick={onNext}
               >
-                <span className="tracking-num--0_03 leading-7 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                <span className="tracking-num--0_03 leading-6 sm:leading-7 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
                   Next Question
                 </span>
                 <svg
@@ -191,7 +181,7 @@ export default function Step03({ onNext }: Step03Props) {
           </div>
         </section>
       </main>
-      <ProgressIndicators currentStep={3} />
+      <ProgressIndicators currentStep={3} onStepClick={onStepClick} />
     </div>
   );
 }
