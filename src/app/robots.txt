@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cogpiece.com/sitemap.xml
+Sitemap: https://apptics-form.vercel.app/sitemap.xml

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Image from 'next/image';
 import ProgressIndicators from './ProgressIndicators';
 
@@ -50,6 +51,65 @@ const CheckIcon = () => (
 );
 
 export default function Step03({ onNext }: Step03Props) {
+  const [selectedOptions, setSelectedOptions] = useState<Set<number>>(
+    new Set([1])
+  );
+
+  const toggleOption = (optionId: number) => {
+    setSelectedOptions(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(optionId)) {
+        newSet.delete(optionId);
+      } else {
+        newSet.add(optionId);
+      }
+      return newSet;
+    });
+  };
+
+  const options = [
+    {
+      id: 1,
+      icon: '💳',
+      text: "We don't have subscriptions or MRR setup yet",
+    },
+    {
+      id: 2,
+      icon: '📉',
+      text: "We can't produce enough winning creatives / ads don't scale profitably",
+    },
+    {
+      id: 3,
+      icon: '🚫',
+      text: 'Chargebacks or failed payments are killing margins',
+    },
+    {
+      id: 4,
+      icon: '🏦',
+      text: 'We need payment processing',
+    },
+    {
+      id: 5,
+      icon: '🛑',
+      text: 'We just got banned on Shopify payments/Stripe',
+    },
+    {
+      id: 6,
+      icon: '💰',
+      text: "We aren't maximizing for AOV & LTV",
+    },
+    {
+      id: 7,
+      icon: '🔐',
+      text: 'We want data security and ownership of our subscribers (MRR)',
+    },
+    {
+      id: 8,
+      icon: '📦',
+      text: 'We have operational bottlenecks (fulfillment, shipping, sourcing issues)',
+    },
+  ];
+
   return (
     <div className="relative w-full h-screen flex flex-col rounded-num-16 bg-whitesmoke-100 border-whitesmoke-200 border-solid border-[1px] box-border overflow-hidden text-center text-[42px] text-darkslategray-100 font-geist">
       {/* Header: Logo */}
@@ -82,100 +142,33 @@ export default function Step03({ onNext }: Step03Props) {
             {/* Options Grid */}
             <div className="flex flex-col items-center justify-center gap-8 text-left text-num-22_5 font-inter w-full">
               <div className="grid grid-cols-2 gap-4 w-full max-w-3xl">
-                {/* Option 1 */}
-                <div className="w-full rounded-num-16 bg-dodgerblue-200 border-dodgerblue-100 border-solid border-[2px] box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5">
-                  <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
-                    💳
-                  </div>
-                  <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
-                    We don&apos;t have subscriptions or MRR setup yet
-                  </div>
-                  <CheckIcon />
-                </div>
-
-                {/* Option 2 */}
-                <div className="w-full rounded-num-16 [background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5">
-                  <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
-                    📉
-                  </div>
-                  <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
-                    We can&apos;t produce enough winning creatives / ads
-                    don&apos;t scale profitably
-                  </div>
-                  <UncheckIcon />
-                </div>
-
-                {/* Option 3 */}
-                <div className="w-full rounded-num-16 [background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5">
-                  <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
-                    🚫
-                  </div>
-                  <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
-                    Chargebacks or failed payments are killing margins
-                  </div>
-                  <UncheckIcon />
-                </div>
-
-                {/* Option 4 */}
-                <div className="w-full rounded-num-16 [background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5">
-                  <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
-                    🏦
-                  </div>
-                  <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
-                    We need payment processing
-                  </div>
-                  <UncheckIcon />
-                </div>
-
-                {/* Option 5 */}
-                <div className="w-full rounded-num-16 [background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5">
-                  <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
-                    🛑
-                  </div>
-                  <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
-                    We just got banned on Shopify payments/Stripe
-                  </div>
-                  <UncheckIcon />
-                </div>
-
-                {/* Option 6 */}
-                <div className="w-full rounded-num-16 [background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5">
-                  <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
-                    💰
-                  </div>
-                  <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
-                    We aren&apos;t maximizing for AOV & LTV
-                  </div>
-                  <UncheckIcon />
-                </div>
-
-                {/* Option 7 */}
-                <div className="w-full rounded-num-16 [background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5">
-                  <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
-                    🔐
-                  </div>
-                  <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
-                    We want data security and ownership of our subscribers (MRR)
-                  </div>
-                  <UncheckIcon />
-                </div>
-
-                {/* Option 8 */}
-                <div className="w-full rounded-num-16 [background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5">
-                  <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
-                    📦
-                  </div>
-                  <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
-                    We have operational bottlenecks (fulfillment, shipping,
-                    sourcing issues)
-                  </div>
-                  <UncheckIcon />
-                </div>
+                {options.map(option => {
+                  const isSelected = selectedOptions.has(option.id);
+                  return (
+                    <button
+                      key={option.id}
+                      onClick={() => toggleOption(option.id)}
+                      className={`w-full rounded-num-16 box-border overflow-hidden flex items-center py-num-12 px-num-20 gap-2.5 cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-sm active:scale-[0.99] ${
+                        isSelected
+                          ? 'bg-dodgerblue-200 border-dodgerblue-100 border-solid border-[2px]'
+                          : '[background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] hover:bg-opacity-40'
+                      }`}
+                    >
+                      <div className="text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
+                        {option.icon}
+                      </div>
+                      <div className="flex-1 text-num-15 tracking-num--0_03 leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-left">
+                        {option.text}
+                      </div>
+                      {isSelected ? <CheckIcon /> : <UncheckIcon />}
+                    </button>
+                  );
+                })}
               </div>
 
               {/* Next Button */}
               <button
-                className="w-[350px] h-12 shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center py-2.5 px-num-20 gap-[5px] cursor-pointer text-center text-[16px] text-white"
+                className="w-[350px] h-12 shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center py-2.5 px-num-20 gap-[5px] cursor-pointer text-center text-[16px] text-white transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                 onClick={onNext}
               >
                 <span className="tracking-num--0_03 leading-7 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">

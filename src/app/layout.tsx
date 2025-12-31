@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Manrope, DM_Mono, Geist } from 'next/font/google';
-import localFont from 'next/font/local';
+import { Inter, Geist } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({
@@ -19,57 +18,57 @@ const geist = Geist({
 
 export const metadata: Metadata = {
   title: {
-    default: 'CogPiece - Private DeFi Trading Platform',
-    template: '%s | CogPiece',
+    default: 'Apptics Form',
+    template: '%s | Apptics Form',
   },
   description:
-    'Trade DeFi assets privately with MEV protection, privacy-first architecture, and lightning-fast execution. Experience secure, anonymous trading on CogPiece.',
+    'Scale your business with the right systems in place. Book a call with the Apptics team to discover how we can help you scale faster.',
   keywords: [
-    'DeFi',
-    'private trading',
-    'MEV protection',
-    'cryptocurrency',
-    'blockchain',
-    'privacy',
-    'trading platform',
+    'business scaling',
+    'systems',
+    'growth',
+    'ecommerce',
+    'dropshipping',
+    'business development',
+    'scaling platform',
   ],
-  authors: [{ name: 'CogPiece Team' }],
-  creator: 'CogPiece',
-  publisher: 'CogPiece',
+  authors: [{ name: 'Apptics Team' }],
+  creator: 'Apptics',
+  publisher: 'Apptics',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://cog-piece.vercel.app'),
+  metadataBase: new URL('https://apptics-form.vercel.app'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://cog-piece.vercel.app',
-    title: 'CogPiece - Private DeFi Trading Platform',
+    url: 'https://apptics-form.vercel.app',
+    title: 'Apptics Form',
     description:
-      'Trade DeFi assets privately with MEV protection, privacy-first architecture, and lightning-fast execution.',
-    siteName: 'CogPiece',
+      'Scale your business with the right systems in place. Book a call with the Apptics team to discover how we can help you scale faster.',
+    siteName: 'Apptics Form',
     images: [
       {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'CogPiece - Private DeFi Trading Platform',
+        alt: 'Apptics Form',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CogPiece - Private DeFi Trading Platform',
+    title: 'Apptics Form',
     description:
-      'Trade DeFi assets privately with MEV protection, privacy-first architecture, and lightning-fast execution.',
+      'Scale your business with the right systems in place. Book a call with the Apptics team to discover how we can help you scale faster.',
     images: ['/og.png'],
-    creator: '@cogpiece',
-    site: '@cogpiece',
+    creator: '@apptics',
+    site: '@apptics',
   },
   robots: {
     index: true,

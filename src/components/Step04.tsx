@@ -40,7 +40,7 @@ export default function Step04({ onNext }: Step04Props) {
               <div className="grid grid-cols-2 gap-4 w-full">
                 {/* Option 1 */}
                 <button
-                  className="w-full shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-start p-5 gap-[15px] cursor-pointer text-left"
+                  className="w-full shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-start p-5 gap-[15px] cursor-pointer text-left transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                   onClick={onNext}
                 >
                   <div className="tracking-num--0_03 leading-[33px] font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
@@ -52,7 +52,10 @@ export default function Step04({ onNext }: Step04Props) {
                 </button>
 
                 {/* Option 2 */}
-                <button className="w-full shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-start p-5 gap-[15px] cursor-pointer text-left">
+                <button
+                  onClick={onNext}
+                  className="w-full shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-start p-5 gap-[15px] cursor-pointer text-left transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
+                >
                   <div className="tracking-num--0_03 leading-[33px] font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
                     💳
                   </div>
@@ -63,7 +66,10 @@ export default function Step04({ onNext }: Step04Props) {
                 </button>
 
                 {/* Option 3 */}
-                <button className="w-full shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-start p-5 gap-[15px] cursor-pointer text-left">
+                <button
+                  onClick={onNext}
+                  className="w-full shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-start p-5 gap-[15px] cursor-pointer text-left transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
+                >
                   <div className="tracking-num--0_03 leading-[33px] font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
                     💻
                   </div>
@@ -74,7 +80,10 @@ export default function Step04({ onNext }: Step04Props) {
                 </button>
 
                 {/* Option 4 */}
-                <button className="w-full shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-start p-5 gap-[15px] cursor-pointer text-left">
+                <button
+                  onClick={onNext}
+                  className="w-full shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-start p-5 gap-[15px] cursor-pointer text-left transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
+                >
                   <div className="tracking-num--0_03 leading-[33px] font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
                     🌱
                   </div>
