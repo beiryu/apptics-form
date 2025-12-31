@@ -16,7 +16,12 @@ const config: Config = {
         white: '#fff',
         gainsboro: '#d3d9e5',
         dimgray: '#5a5d66',
-        darkslategray: '#292d33',
+        darkslategray: {
+          DEFAULT: '#292d33',
+          '100': '#292d33',
+          '200': 'rgba(41, 45, 51, 0.1)',
+          '300': 'rgba(41, 45, 51, 0.05)',
+        },
         slategray: '#6b7480',
         black: '#000',
         gray: 'rgba(0, 0, 0, 0.1)',

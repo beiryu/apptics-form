@@ -14,6 +14,7 @@ import Step08 from '@/components/Step08';
 import Step09 from '@/components/Step09';
 import Step10 from '@/components/Step10';
 import Step11 from '@/components/Step11';
+import Step12 from '@/components/Step12';
 
 function StepNavigator() {
   const searchParams = useSearchParams();
@@ -22,7 +23,7 @@ function StepNavigator() {
   const stepFromUrl = searchParams.get('step');
   const initialStep = stepFromUrl ? parseInt(stepFromUrl, 10) : 1;
   const [currentStep, setCurrentStep] = useState(
-    initialStep >= 1 && initialStep <= 11 ? initialStep : 1
+    initialStep >= 1 && initialStep <= 12 ? initialStep : 1
   );
   const [direction, setDirection] = useState(1); // 1 for next, -1 for previous
 
@@ -51,7 +52,7 @@ function StepNavigator() {
     const stepFromUrl = searchParams.get('step');
     if (stepFromUrl) {
       const parsedStep = parseInt(stepFromUrl, 10);
-      if (parsedStep >= 1 && parsedStep <= 11 && parsedStep !== currentStep) {
+      if (parsedStep >= 1 && parsedStep <= 12 && parsedStep !== currentStep) {
         setDirection(parsedStep > currentStep ? 1 : -1);
         setCurrentStep(parsedStep);
       }
@@ -63,14 +64,14 @@ function StepNavigator() {
   }, [searchParams]);
 
   const handleNextStep = () => {
-    if (currentStep < 11) {
+    if (currentStep < 12) {
       setDirection(1);
       setCurrentStep(currentStep + 1);
     }
   };
 
   const handleStepClick = (step: number) => {
-    if (step >= 1 && step <= 11 && step !== currentStep) {
+    if (step >= 1 && step <= 12 && step !== currentStep) {
       setDirection(step > currentStep ? 1 : -1);
       setCurrentStep(step);
     }
@@ -121,6 +122,8 @@ function StepNavigator() {
         return <Step10 onNext={handleNextStep} onStepClick={handleStepClick} />;
       case 11:
         return <Step11 onNext={handleNextStep} onStepClick={handleStepClick} />;
+      case 12:
+        return <Step12 onNext={handleNextStep} onStepClick={handleStepClick} />;
       default:
         return <Step01 onNext={handleNextStep} onStepClick={handleStepClick} />;
     }

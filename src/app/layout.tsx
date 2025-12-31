@@ -52,21 +52,12 @@ export const metadata: Metadata = {
     description:
       'Scale your business with the right systems in place. Book a call with the Apptics team to discover how we can help you scale faster.',
     siteName: 'Apptics Form',
-    images: [
-      {
-        url: '/og.png',
-        width: 1200,
-        height: 630,
-        alt: 'Apptics Form',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Apptics Form',
     description:
       'Scale your business with the right systems in place. Book a call with the Apptics team to discover how we can help you scale faster.',
-    images: ['/og.png'],
     creator: '@apptics',
     site: '@apptics',
   },
