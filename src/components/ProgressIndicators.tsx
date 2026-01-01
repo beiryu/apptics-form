@@ -26,7 +26,7 @@ export default function ProgressIndicators({
             disabled={!isClickable}
             className={`h-2.5 ${
               isActive ? 'w-[29.2px]' : 'w-2.5'
-            } shadow-[0px_1.538461446762085px_0.77px_rgba(0,_0,_0,_0.35),_0px_4.615384101867676px_7.69px_rgba(0,_0,_0,_0.3),_0px_1.153846025466919px_0.77px_rgba(255,_255,_255,_0.97)_inset] ${
+            } ${
               isActive ? 'rounded-[12.31px]' : 'rounded-num-50'
             } [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[0.8px] box-border transition-all duration-200 ${
               isActiveOrPast

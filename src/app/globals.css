@@ -4,8 +4,10 @@
 
 @config "../../tailwind.config.ts";
 
+html,
 body {
   @apply leading-[normal] m-0;
+  background: transparent;
 }
 
 @layer base {

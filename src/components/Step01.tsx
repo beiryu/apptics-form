@@ -7,12 +7,12 @@ interface Step01Props {
 
 export default function Step01({ onNext, onStepClick }: Step01Props) {
   return (
-    <div className="w-full h-screen flex flex-col items-center rounded-2xl bg-whitesmoke-100 border-whitesmoke-200 border-solid border-[1px] box-border overflow-hidden text-center text-sm text-dimgray font-inter">
+    <div className="w-full h-screen flex flex-col items-center rounded-2xl bg-transparent box-border overflow-hidden text-center text-sm text-dimgray font-inter">
       {/* Main Content Section */}
       <main className="flex-1 flex items-start justify-center w-full px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 md:pt-32 lg:pt-[200px] pb-20 sm:pb-24 md:pb-32 lg:pb-[200px] overflow-y-auto">
         <section className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8 w-full max-w-[1000px]">
           {/* Badge */}
-          <div className="shadow-[0px_4px_4px_-1px_rgba(66,_90,_108,_0.06),_0px_20px_22px_-6px_rgba(36,_40,_51,_0.04)] rounded-[14px] bg-white border-gainsboro border-solid border-[0.5px] overflow-hidden flex items-center py-1.5 px-3 sm:py-2 sm:px-4 shrink-0 font-inter">
+          <div className="rounded-[14px] bg-transparent overflow-hidden flex items-center py-1.5 px-3 sm:py-2 sm:px-4 shrink-0 font-inter">
             <div className="text-xs sm:text-sm tracking-[-0.02em] leading-4 sm:leading-5 capitalize">
               Book a call with the team
             </div>

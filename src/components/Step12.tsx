@@ -115,7 +115,7 @@ export default function Step12({}: Step12Props) {
   };
 
   return (
-    <div className="relative w-full h-screen flex flex-col rounded-num-16 bg-whitesmoke-100 border-whitesmoke-200 border-solid border-[1px] box-border overflow-hidden text-center text-[42px] text-[#292d33] font-inter">
+    <div className="relative w-full h-screen flex flex-col rounded-num-16 bg-transparent box-border overflow-hidden text-center text-[42px] text-[#292d33] font-inter">
       {/* Main Content Section */}
       <main className="flex-1 flex items-start justify-center w-full px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 md:pt-32 lg:pt-[200px] pb-20 sm:pb-24 md:pb-32 lg:pb-[200px] overflow-y-auto">
         <section className="flex flex-col items-center justify-center gap-6 sm:gap-8 w-full max-w-4xl">
@@ -124,7 +124,7 @@ export default function Step12({}: Step12Props) {
             <h1 className="w-full text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] tracking-[-0.07em] leading-[1.1] sm:leading-[1.15] md:leading-[1.2] lg:leading-[48px] font-medium font-geist px-2 sm:px-0">
               Book Your Scaling Call With The Apptics Team
             </h1>
-            <div className="rounded-[15px] bg-cornflowerblue-200 flex items-center justify-center py-3 sm:py-[15px] px-3 sm:px-2.5 text-sm sm:text-base text-cornflowerblue-100 font-inter w-full max-w-2xl">
+            <div className="rounded-[15px] bg-transparent flex items-center justify-center py-3 sm:py-[15px] px-3 sm:px-2.5 text-sm sm:text-base text-cornflowerblue-100 font-inter w-full max-w-2xl">
               <p className="w-full tracking-[-0.02em] leading-5 sm:leading-6 font-medium">
                 In a 25-minute session, we&apos;ll map your growth bottlenecks,
                 identify revenue leaks, and show the exact system we use to
