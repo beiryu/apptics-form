@@ -33,8 +33,8 @@ export default function Step12({}: Step12Props) {
 
   useEffect(() => {
     (async function () {
-      // const cal = await getCalApi({ namespace: 'apptics.ai-intro-call' });
-      const cal = await getCalApi({ namespace: '15min' });
+      const cal = await getCalApi({ namespace: 'apptics.ai-intro-call' });
+      // const cal = await getCalApi({ namespace: '15min' });
       cal('ui', {
         hideEventTypeDetails: false,
         layout: 'month_view',
@@ -313,10 +313,10 @@ export default function Step12({}: Step12Props) {
 
           {/* CTA Button */}
           <button
-            // data-cal-namespace="apptics.ai-intro-call"
-            // data-cal-link="team/apptics/apptics.ai-intro-call"
-            data-cal-namespace="15min"
-            data-cal-link="nguyen-khanh-đinh-f2ioyc/15min"
+            data-cal-namespace="apptics.ai-intro-call"
+            data-cal-link="team/apptics/apptics.ai-intro-call"
+            // data-cal-namespace="15min"
+            // data-cal-link="nguyen-khanh-đinh-f2ioyc/15min"
             data-cal-config={JSON.stringify(getCalConfig())}
             onClick={handleFormSubmit}
             disabled={!name || !email || !contactInfo}
