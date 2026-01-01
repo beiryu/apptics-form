@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { getCalApi } from '@calcom/embed-react';
+import { useQuizStore } from '@/store/quizStore';
 
 interface Step12Props {
   onNext?: () => void;
@@ -7,8 +9,111 @@ interface Step12Props {
 
 type ContactMethod = 'telegram' | 'phone';
 
-export default function Step12({ onNext }: Step12Props) {
+export default function Step12({}: Step12Props) {
+  const getFormattedAnswers = useQuizStore(state => state.getFormattedAnswers);
+
   const [contactMethod, setContactMethod] = useState<ContactMethod>('telegram');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [contactInfo, setContactInfo] = useState('');
+
+  // Use refs to store current values for use in callbacks
+  const nameRef = useRef(name);
+  const emailRef = useRef(email);
+  const contactMethodRef = useRef(contactMethod);
+  const contactInfoRef = useRef(contactInfo);
+
+  // Update refs when state changes
+  useEffect(() => {
+    nameRef.current = name;
+    emailRef.current = email;
+    contactMethodRef.current = contactMethod;
+    contactInfoRef.current = contactInfo;
+  }, [name, email, contactMethod, contactInfo]);
+
+  useEffect(() => {
+    (async function () {
+      // const cal = await getCalApi({ namespace: 'apptics.ai-intro-call' });
+      const cal = await getCalApi({ namespace: '15min' });
+      cal('ui', {
+        hideEventTypeDetails: false,
+        layout: 'month_view',
+        cssVarsPerTheme: {
+          light: { 'cal-brand': '#000000' },
+          dark: { 'cal-brand': '#ffffff' },
+        },
+      });
+
+      // Listen for booking success
+      cal('on', {
+        action: 'bookingSuccessful',
+        callback: (e: CustomEvent) => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const bookingData = (e as any).detail?.data;
+          console.log(bookingData);
+          const title = bookingData?.booking?.title;
+          const meetingLink = bookingData?.booking?.videoCallUrl;
+          // Send email with all quiz data
+          sendQuizEmail(title, meetingLink);
+        },
+      });
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleFormSubmit = () => {
+    // The button with data-cal-* attributes will trigger the popup
+    // Cal.com will automatically use the data-cal-config for pre-filling
+  };
+
+  // Build Cal.com config with conditional fields
+  const getCalConfig = () => {
+    const config: Record<string, unknown> = {
+      layout: 'month_view',
+      name: name,
+      email: email,
+    };
+    if (contactInfo) {
+      if (contactMethod === 'telegram') {
+        config['watele'] = contactInfo;
+      } else if (contactMethod === 'phone') {
+        config['smsReminderNumber'] = contactInfo;
+        config['aiAgentCallPhoneNumber'] = contactInfo;
+      }
+    }
+
+    return config;
+  };
+
+  const sendQuizEmail = async (title: string, meetingLink: string) => {
+    try {
+      const quizAnswers = getFormattedAnswers();
+      const response = await fetch('/api/send-quiz-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title,
+          contactDetails: {
+            name: nameRef.current,
+            email: emailRef.current,
+            contactMethod: contactMethodRef.current,
+            contactInfo: contactInfoRef.current,
+          },
+          meetingLink,
+          quizAnswers,
+        }),
+      });
+
+      if (!response.ok) {
+        console.error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+    }
+  };
+
   return (
     <div className="relative w-full h-screen flex flex-col rounded-num-16 bg-whitesmoke-100 border-whitesmoke-200 border-solid border-[1px] box-border overflow-hidden text-center text-[42px] text-[#292d33] font-inter">
       {/* Main Content Section */}
@@ -52,6 +157,8 @@ export default function Step12({ onNext }: Step12Props) {
               <input
                 type="text"
                 placeholder="Your Name"
+                value={name}
+                onChange={e => setName(e.target.value)}
                 className="flex-1 bg-transparent border-none outline-none tracking-num--0_03 leading-[22px] font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] opacity-num-0_5 text-[#292d33] placeholder:text-[#292d33] focus:opacity-100 transition-opacity duration-150 ease-in-out"
               />
             </div>
@@ -79,7 +186,9 @@ export default function Step12({ onNext }: Step12Props) {
 
               <input
                 type="email"
-                placeholder="hi@echodzns.com"
+                placeholder="hello@example.com"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
                 className="flex-1 bg-transparent border-none outline-none tracking-num--0_03 leading-[22px] font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] opacity-num-0_5 text-[#292d33] placeholder:text-[#292d33] focus:opacity-100 transition-opacity duration-150 ease-in-out"
               />
             </div>
@@ -195,6 +304,8 @@ export default function Step12({ onNext }: Step12Props) {
                     ? '@username'
                     : '+1 (555) 123-4567'
                 }
+                value={contactInfo}
+                onChange={e => setContactInfo(e.target.value)}
                 className="flex-1 bg-transparent border-none outline-none tracking-num--0_03 leading-[22px] font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] opacity-num-0_5 text-[#292d33] placeholder:text-[#292d33] focus:opacity-100 transition-opacity duration-150 ease-in-out"
               />
             </div>
@@ -202,8 +313,14 @@ export default function Step12({ onNext }: Step12Props) {
 
           {/* CTA Button */}
           <button
-            onClick={onNext}
-            className="w-full sm:w-[350px] min-h-[44px] h-auto sm:h-12 shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center py-2.5 px-4 sm:px-5 text-sm sm:text-base text-white cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
+            // data-cal-namespace="apptics.ai-intro-call"
+            // data-cal-link="team/apptics/apptics.ai-intro-call"
+            data-cal-namespace="15min"
+            data-cal-link="nguyen-khanh-đinh-f2ioyc/15min"
+            data-cal-config={JSON.stringify(getCalConfig())}
+            onClick={handleFormSubmit}
+            disabled={!name || !email || !contactInfo}
+            className="w-full sm:w-[350px] min-h-[44px] h-auto sm:h-12 shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center py-2.5 px-4 sm:px-5 text-sm sm:text-base text-white cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <span className="tracking-num--0_03 leading-6 sm:leading-7 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
               Book Scaling Call

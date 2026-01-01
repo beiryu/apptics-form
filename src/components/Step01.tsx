@@ -19,20 +19,18 @@ export default function Step01({ onNext, onStepClick }: Step01Props) {
           </div>
 
           {/* Heading with Image */}
-          <div className="flex flex-col sm:flex-row items-start gap-1 sm:gap-2 shrink-0 text-left text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] text-darkslategray font-geist">
+          <div className="flex flex-col sm:flex-row items-start gap-1 sm:gap-2 shrink-0 text-left text-7xl xl:text-[88px] text-darkslategray font-geist">
             <div className="tracking-[-0.04em] leading-[1.1] sm:leading-[1.1] md:leading-[1.1] lg:leading-[80px] font-medium">
               Scale with
             </div>
-            <div className="h-12 w-[180px] sm:h-16 sm:w-[240px] md:h-20 md:w-[292px] overflow-hidden flex items-center justify-center">
-              <Image
-                src="/step/logo-title.png"
-                className="h-full w-full object-cover [transform:scale(1.035)] mt-1 sm:mt-2 md:mt-4"
-                width={292}
-                height={80}
-                sizes="100vw"
-                alt=""
-              />
-            </div>
+            <Image
+              src="/step/logo-title.png"
+              className="h-20 w-auto object-cover md:[transform:scale(0.92)] xl:[transform:scale(1.2)] mx-auto mt-2 md:-mx-2 xl:mx-6"
+              width={292}
+              height={80}
+              sizes="100vw"
+              alt=""
+            />
           </div>
 
           {/* Description */}

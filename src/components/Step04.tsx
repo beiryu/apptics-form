@@ -1,4 +1,5 @@
 import ProgressIndicators from './ProgressIndicators';
+import { useQuizStore } from '@/store/quizStore';
 
 interface Step04Props {
   onNext?: () => void;
@@ -6,6 +7,12 @@ interface Step04Props {
 }
 
 export default function Step04({ onNext, onStepClick }: Step04Props) {
+  const updateAnswer = useQuizStore(state => state.updateAnswer);
+
+  const handleAnswer = (answer: string) => {
+    updateAnswer('step4', answer);
+    if (onNext) onNext();
+  };
   return (
     <div className="relative w-full h-screen flex flex-col rounded-num-16 bg-whitesmoke-100 border-whitesmoke-200 border-solid border-[1px] box-border overflow-hidden text-center text-[42px] text-darkslategray font-geist">
       {/* Main Content Section */}
@@ -29,7 +36,9 @@ export default function Step04({ onNext, onStepClick }: Step04Props) {
                 {/* Option 1 */}
                 <button
                   className="w-full min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-start p-3 sm:p-4 md:p-5 gap-2 sm:gap-3 md:gap-[15px] cursor-pointer text-left transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
-                  onClick={onNext}
+                  onClick={() =>
+                    handleAnswer('DTC brand selling one time physical products')
+                  }
                 >
                   <div className="text-lg sm:text-xl tracking-num--0_03 leading-[33px] font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)] shrink-0">
                     📦
@@ -41,7 +50,11 @@ export default function Step04({ onNext, onStepClick }: Step04Props) {
 
                 {/* Option 2 */}
                 <button
-                  onClick={onNext}
+                  onClick={() =>
+                    handleAnswer(
+                      'Subscription based brand (refill consumable, member credits, or VIP/Rewards Club)'
+                    )
+                  }
                   className="w-full min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-start p-3 sm:p-4 md:p-5 gap-2 sm:gap-3 md:gap-[15px] cursor-pointer text-left transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                 >
                   <div className="text-lg sm:text-xl tracking-num--0_03 leading-[33px] font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)] shrink-0">
@@ -55,7 +68,11 @@ export default function Step04({ onNext, onStepClick }: Step04Props) {
 
                 {/* Option 3 */}
                 <button
-                  onClick={onNext}
+                  onClick={() =>
+                    handleAnswer(
+                      'Digital store selling online downloads, files, community, agency, etc'
+                    )
+                  }
                   className="w-full min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-start p-3 sm:p-4 md:p-5 gap-2 sm:gap-3 md:gap-[15px] cursor-pointer text-left transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                 >
                   <div className="text-lg sm:text-xl tracking-num--0_03 leading-[33px] font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)] shrink-0">
@@ -69,7 +86,7 @@ export default function Step04({ onNext, onStepClick }: Step04Props) {
 
                 {/* Option 4 */}
                 <button
-                  onClick={onNext}
+                  onClick={() => handleAnswer("I'm just starting out")}
                   className="w-full min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-start p-3 sm:p-4 md:p-5 gap-2 sm:gap-3 md:gap-[15px] cursor-pointer text-left transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                 >
                   <div className="text-lg sm:text-xl tracking-num--0_03 leading-[33px] font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)] shrink-0">

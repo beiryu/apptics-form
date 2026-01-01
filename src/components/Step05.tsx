@@ -1,4 +1,5 @@
 import ProgressIndicators from './ProgressIndicators';
+import { useQuizStore } from '@/store/quizStore';
 
 interface Step05Props {
   onNext?: () => void;
@@ -6,6 +7,12 @@ interface Step05Props {
 }
 
 export default function Step05({ onNext, onStepClick }: Step05Props) {
+  const updateAnswer = useQuizStore(state => state.updateAnswer);
+
+  const handleAnswer = (answer: string) => {
+    updateAnswer('step5', answer);
+    if (onNext) onNext();
+  };
   return (
     <div className="relative w-full h-screen flex flex-col rounded-num-16 bg-whitesmoke-100 border-whitesmoke-200 border-solid border-[1px] box-border overflow-hidden text-center text-[42px] text-darkslategray font-geist">
       {/* Main Content Section */}
@@ -29,7 +36,7 @@ export default function Step05({ onNext, onStepClick }: Step05Props) {
                 {/* First Row */}
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4 w-full">
                   <button
-                    onClick={onNext}
+                    onClick={() => handleAnswer('Under $50K monthly')}
                     className="w-full sm:w-[220px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-3 sm:p-4 md:p-num-20 gap-2 sm:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                   >
                     <svg
@@ -53,7 +60,7 @@ export default function Step05({ onNext, onStepClick }: Step05Props) {
                     </div>
                   </button>
                   <button
-                    onClick={onNext}
+                    onClick={() => handleAnswer('$50K - $150K monthly')}
                     className="w-full sm:w-[220px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-3 sm:p-4 md:p-num-20 gap-2 sm:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                   >
                     <svg
@@ -79,7 +86,7 @@ export default function Step05({ onNext, onStepClick }: Step05Props) {
                     </div>
                   </button>
                   <button
-                    onClick={onNext}
+                    onClick={() => handleAnswer('$150K - $500K monthly')}
                     className="w-full sm:w-[220px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-3 sm:p-4 md:p-num-20 gap-2 sm:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                   >
                     <svg
@@ -114,7 +121,7 @@ export default function Step05({ onNext, onStepClick }: Step05Props) {
                 {/* Second Row */}
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4 w-full">
                   <button
-                    onClick={onNext}
+                    onClick={() => handleAnswer('$500K - $2M monthly')}
                     className="w-full sm:w-[220px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-3 sm:p-4 md:p-num-20 gap-2 sm:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                   >
                     <svg
@@ -139,7 +146,7 @@ export default function Step05({ onNext, onStepClick }: Step05Props) {
                   </button>
                   <button
                     className="w-full sm:w-[220px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-3 sm:p-4 md:p-num-20 gap-2 sm:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
-                    onClick={onNext}
+                    onClick={() => handleAnswer('$2M - $5M monthly')}
                   >
                     <svg
                       width="50"
@@ -164,7 +171,7 @@ export default function Step05({ onNext, onStepClick }: Step05Props) {
                     </div>
                   </button>
                   <button
-                    onClick={onNext}
+                    onClick={() => handleAnswer('$5M - $10M+ monthly')}
                     className="w-full sm:w-[220px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex flex-col items-center justify-center p-3 sm:p-4 md:p-num-20 gap-2 sm:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                   >
                     <svg

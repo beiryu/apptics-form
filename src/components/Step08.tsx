@@ -1,4 +1,5 @@
 import ProgressIndicators from './ProgressIndicators';
+import { useQuizStore } from '@/store/quizStore';
 
 interface Step08Props {
   onNext?: () => void;
@@ -6,6 +7,12 @@ interface Step08Props {
 }
 
 export default function Step08({ onNext, onStepClick }: Step08Props) {
+  const updateAnswer = useQuizStore(state => state.updateAnswer);
+
+  const handleAnswer = (answer: string) => {
+    updateAnswer('step8', answer);
+    if (onNext) onNext();
+  };
   return (
     <div className="relative w-full h-screen flex flex-col rounded-num-16 bg-whitesmoke-100 border-whitesmoke-200 border-solid border-[1px] box-border overflow-hidden text-center text-[42px] text-darkslategray font-geist">
       {/* Main Content Section */}
@@ -29,7 +36,11 @@ export default function Step08({ onNext, onStepClick }: Step08Props) {
                 {/* First Row */}
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4 w-full">
                   <button
-                    onClick={onNext}
+                    onClick={() =>
+                      handleAnswer(
+                        'I want your team to build the systems + manage this for me and help me scale'
+                      )
+                    }
                     className="w-full sm:w-[400px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center p-3 sm:p-4 md:p-5 gap-2 sm:gap-3 md:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                   >
                     <div className="tracking-num--0_03 leading-[33px] font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
@@ -41,7 +52,11 @@ export default function Step08({ onNext, onStepClick }: Step08Props) {
                     </div>
                   </button>
                   <button
-                    onClick={onNext}
+                    onClick={() =>
+                      handleAnswer(
+                        'Done-with-you (strategy + help, we implement)'
+                      )
+                    }
                     className="w-full sm:w-[400px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center p-3 sm:p-4 md:p-5 gap-2 sm:gap-3 md:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                   >
                     <div className="tracking-num--0_03 leading-[33px] font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
@@ -57,7 +72,11 @@ export default function Step08({ onNext, onStepClick }: Step08Props) {
                 {/* Second Row */}
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4 w-full">
                   <button
-                    onClick={onNext}
+                    onClick={() =>
+                      handleAnswer(
+                        "Self-service software + connections (just need the tools or intro's to the right people)"
+                      )
+                    }
                     className="w-full sm:w-[400px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center p-3 sm:p-4 md:p-5 gap-2 sm:gap-3 md:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                   >
                     <div className="tracking-num--0_03 leading-[33px] font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">
@@ -69,7 +88,11 @@ export default function Step08({ onNext, onStepClick }: Step08Props) {
                     </div>
                   </button>
                   <button
-                    onClick={onNext}
+                    onClick={() =>
+                      handleAnswer(
+                        '1-on-1 help and consulting from the Apptics Team'
+                      )
+                    }
                     className="w-full sm:w-[400px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center p-3 sm:p-4 md:p-5 gap-2 sm:gap-3 md:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                   >
                     <div className="tracking-num--0_03 leading-[33px] font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)]">

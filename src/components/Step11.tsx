@@ -1,4 +1,5 @@
 import ProgressIndicators from './ProgressIndicators';
+import { useQuizStore } from '@/store/quizStore';
 
 interface Step11Props {
   onNext?: () => void;
@@ -6,6 +7,12 @@ interface Step11Props {
 }
 
 export default function Step11({ onNext, onStepClick }: Step11Props) {
+  const updateAnswer = useQuizStore(state => state.updateAnswer);
+
+  const handleAnswer = (answer: string) => {
+    updateAnswer('step11', answer);
+    if (onNext) onNext();
+  };
   return (
     <div className="relative w-full h-screen flex flex-col rounded-2xl bg-whitesmoke-100 border-whitesmoke-200 border-solid border-[1px] box-border overflow-hidden text-center text-[42px] text-darkslategray font-geist">
       {/* Main Content Section */}
@@ -25,7 +32,11 @@ export default function Step11({ onNext, onStepClick }: Step11Props) {
             <div className="flex flex-col items-center justify-center gap-3 sm:gap-4 text-sm sm:text-base text-white font-inter w-full">
               {/* Option 1 */}
               <button
-                onClick={onNext}
+                onClick={() =>
+                  handleAnswer(
+                    "Yes! – Show me exactly where I'm losing money + show me the plan to help me scale. (Book a Call)"
+                  )
+                }
                 className="w-full sm:w-[400px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-2xl [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center py-3 sm:py-4 px-4 sm:px-5 gap-2 sm:gap-[15px] cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
               >
                 <span className="tracking-[-0.03em] leading-[22px] font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
@@ -52,7 +63,7 @@ export default function Step11({ onNext, onStepClick }: Step11Props) {
 
               {/* Option 2 */}
               <button
-                onClick={onNext}
+                onClick={() => handleAnswer('Maybe Later')}
                 className="w-full sm:w-[350px] min-h-[44px] rounded-2xl [background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] box-border overflow-hidden flex items-center justify-center py-3 px-4 sm:px-5 cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-sm hover:bg-opacity-40 active:scale-[0.98]"
               >
                 <span className="text-sm sm:text-base tracking-[-0.03em] leading-6 sm:leading-7 font-medium text-black [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">

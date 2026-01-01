@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ProgressIndicators from './ProgressIndicators';
+import { useQuizStore } from '@/store/quizStore';
 
 interface Step03Props {
   onNext?: () => void;
@@ -51,6 +52,7 @@ const CheckIcon = () => (
 );
 
 export default function Step03({ onNext, onStepClick }: Step03Props) {
+  const updateAnswer = useQuizStore(state => state.updateAnswer);
   const [selectedOptions, setSelectedOptions] = useState<Set<number>>(
     new Set()
   );
@@ -63,8 +65,22 @@ export default function Step03({ onNext, onStepClick }: Step03Props) {
       } else {
         newSet.add(optionId);
       }
+      // Save selected options to context
+      const selectedTexts = options
+        .filter(opt => newSet.has(opt.id))
+        .map(opt => opt.text);
+      updateAnswer('step3', selectedTexts);
       return newSet;
     });
+  };
+
+  const handleNext = () => {
+    // Ensure we save the current selections before moving on
+    const selectedTexts = options
+      .filter(opt => selectedOptions.has(opt.id))
+      .map(opt => opt.text);
+    updateAnswer('step3', selectedTexts);
+    if (onNext) onNext();
   };
 
   const options = [
@@ -159,7 +175,7 @@ export default function Step03({ onNext, onStepClick }: Step03Props) {
               {/* Next Button */}
               <button
                 className="w-full sm:w-[350px] min-h-[44px] h-auto sm:h-12 shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center py-2.5 px-4 sm:px-num-20 gap-[5px] cursor-pointer text-center text-sm sm:text-[16px] text-white transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
-                onClick={onNext}
+                onClick={handleNext}
               >
                 <span className="tracking-num--0_03 leading-6 sm:leading-7 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
                   Next Question
