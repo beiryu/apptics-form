@@ -8,7 +8,7 @@ export default function ProgressIndicators({
   onStepClick,
 }: ProgressIndicatorsProps) {
   return (
-    <footer className="absolute bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-[200px] left-1/2 -translate-x-1/2 flex items-center gap-1.5 sm:gap-2 md:gap-[7.7px] px-4 z-10">
+    <footer className="absolute bottom-20 md:bottom-24 lg:bottom-28 left-1/2 -translate-x-1/2 flex items-center gap-1.5 sm:gap-2 md:gap-[7.7px] px-4 z-10">
       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(step => {
         const isActive = step === currentStep;
         const isPast = step < currentStep;

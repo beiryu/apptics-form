@@ -130,7 +130,7 @@ function StepNavigator() {
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen flex flex-col rounded-2xl bg-transparent box-border overflow-hidden">
       <AnimatePresence mode="wait" custom={direction}>
         <motion.div
           key={currentStep}
@@ -142,7 +142,9 @@ function StepNavigator() {
           transition={stepTransition}
           className="w-full h-full"
         >
-          {renderStep()}
+          <main className="flex-1 flex items-start justify-center w-full h-full px-4 sm:px-6 lg:px-8 py-4 md:py-8 lg:py-12 overflow-y-auto">
+            {renderStep()}
+          </main>
         </motion.div>
       </AnimatePresence>
     </div>
