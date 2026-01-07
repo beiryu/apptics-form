@@ -15,7 +15,7 @@ export default function Step04({ onNext, onStepClick }: Step04Props) {
   };
   return (
     <>
-      <section className="flex flex-col items-center justify-between gap-4 sm:gap-5 w-full max-w-4xl">
+      <section className="flex flex-col items-center justify-center sm:justify-between gap-4 sm:gap-5 w-full max-w-4xl -mt-60 md:mt-0">
         {/* Question and Options */}
         <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8 text-center">
           {/* Question Header */}
@@ -29,11 +29,11 @@ export default function Step04({ onNext, onStepClick }: Step04Props) {
           </div>
 
           {/* Options Grid */}
-          <div className="flex flex-col items-center justify-center text-left text-base sm:text-lg md:text-[22.5px] font-inter w-full max-w-4xl">
+          <div className="flex flex-col items-center justify-center text-center sm:text-left text-base sm:text-lg md:text-[22.5px] font-inter w-full max-w-4xl">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full">
               {/* Option 1 */}
               <button
-                className="w-full min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-start p-3 sm:p-4 md:p-5 gap-2 sm:gap-3 md:gap-[15px] cursor-pointer text-left transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
+                className="w-full min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center sm:justify-start p-3 sm:p-4 md:p-5 gap-2 sm:gap-3 md:gap-[15px] cursor-pointer text-center sm:text-left transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
                 onClick={() =>
                   handleAnswer('DTC brand selling one time physical products')
                 }
@@ -41,7 +41,7 @@ export default function Step04({ onNext, onStepClick }: Step04Props) {
                 <div className="text-lg sm:text-xl tracking-num--0_03 leading-[33px] font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)] shrink-0">
                   📦
                 </div>
-                <div className="flex-1 text-sm sm:text-[15px] tracking-num--0_03 leading-5 sm:leading-[22px] font-medium text-white [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                <div className="flex-1 text-sm sm:text-[15px] tracking-num--0_03 leading-5 sm:leading-[22px] font-medium text-white [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-center sm:text-left">
                   DTC brand selling one time physical products
                 </div>
               </button>
@@ -53,12 +53,12 @@ export default function Step04({ onNext, onStepClick }: Step04Props) {
                     'Subscription based brand (refill consumable, member credits, or VIP/Rewards Club)'
                   )
                 }
-                className="w-full min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-start p-3 sm:p-4 md:p-5 gap-2 sm:gap-3 md:gap-[15px] cursor-pointer text-left transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
+                className="w-full min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center sm:justify-start p-3 sm:p-4 md:p-5 gap-2 sm:gap-3 md:gap-[15px] cursor-pointer text-center sm:text-left transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
               >
                 <div className="text-lg sm:text-xl tracking-num--0_03 leading-[33px] font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)] shrink-0">
                   💳
                 </div>
-                <div className="flex-1 text-sm sm:text-[15px] tracking-num--0_03 leading-5 sm:leading-[22px] font-medium text-white [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                <div className="flex-1 text-sm sm:text-[15px] tracking-num--0_03 leading-5 sm:leading-[22px] font-medium text-white [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-center sm:text-left">
                   Subscription based brand (refill consumable, member credits,
                   or VIP/Rewards Club)
                 </div>
@@ -71,12 +71,12 @@ export default function Step04({ onNext, onStepClick }: Step04Props) {
                     'Digital store selling online downloads, files, community, agency, etc'
                   )
                 }
-                className="w-full min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-start p-3 sm:p-4 md:p-5 gap-2 sm:gap-3 md:gap-[15px] cursor-pointer text-left transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
+                className="w-full min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center sm:justify-start p-3 sm:p-4 md:p-5 gap-2 sm:gap-3 md:gap-[15px] cursor-pointer text-center sm:text-left transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
               >
                 <div className="text-lg sm:text-xl tracking-num--0_03 leading-[33px] font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)] shrink-0">
                   💻
                 </div>
-                <div className="flex-1 text-sm sm:text-[15px] tracking-num--0_03 leading-5 sm:leading-[22px] font-medium text-white [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                <div className="flex-1 text-sm sm:text-[15px] tracking-num--0_03 leading-5 sm:leading-[22px] font-medium text-white [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-center sm:text-left">
                   Digital store selling online downloads, files, community,
                   agency, etc
                 </div>
@@ -85,12 +85,12 @@ export default function Step04({ onNext, onStepClick }: Step04Props) {
               {/* Option 4 */}
               <button
                 onClick={() => handleAnswer("I'm just starting out")}
-                className="w-full min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-start p-3 sm:p-4 md:p-5 gap-2 sm:gap-3 md:gap-[15px] cursor-pointer text-left transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
+                className="w-full min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center sm:justify-start p-3 sm:p-4 md:p-5 gap-2 sm:gap-3 md:gap-[15px] cursor-pointer text-center sm:text-left transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.99] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
               >
                 <div className="text-lg sm:text-xl tracking-num--0_03 leading-[33px] font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)] shrink-0">
                   🌱
                 </div>
-                <div className="flex-1 text-sm sm:text-[15px] tracking-num--0_03 leading-5 sm:leading-[22px] font-medium text-white [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                <div className="flex-1 text-sm sm:text-[15px] tracking-num--0_03 leading-5 sm:leading-[22px] font-medium text-white [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-center sm:text-left">
                   I&apos;m just starting out
                 </div>
               </button>

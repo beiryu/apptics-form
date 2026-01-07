@@ -15,7 +15,7 @@ export default function Step11({ onNext, onStepClick }: Step11Props) {
   };
   return (
     <>
-      <section className="flex flex-col items-center justify-between gap-4 sm:gap-5 w-full max-w-4xl">
+      <section className="flex flex-col items-center justify-center sm:justify-between gap-4 sm:gap-5 w-full max-w-4xl -mt-60 md:mt-0">
         {/* Question and Buttons */}
         <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8 text-center">
           {/* Question Header */}
@@ -27,7 +27,7 @@ export default function Step11({ onNext, onStepClick }: Step11Props) {
           </div>
 
           {/* Options */}
-          <div className="flex flex-col items-center justify-center gap-3 sm:gap-4 text-sm sm:text-base text-white font-inter w-full">
+          <div className="flex flex-col items-center justify-center gap-3 sm:gap-4 text-center sm:text-left text-sm sm:text-base text-white font-inter w-full">
             {/* Option 1 */}
             <button
               onClick={() =>
@@ -51,7 +51,7 @@ export default function Step11({ onNext, onStepClick }: Step11Props) {
                   />
                 </svg>
               </span>
-              <span className="flex-1 text-sm sm:text-base tracking-[-0.03em] leading-5 sm:leading-[22px] font-medium text-white [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-left">
+              <span className="flex-1 text-sm sm:text-base tracking-[-0.03em] leading-5 sm:leading-[22px] font-medium text-white [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-center sm:text-left">
                 Yes! – Show me exactly where I&apos;m losing money + show me the
                 plan to help me scale.
                 <br />

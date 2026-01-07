@@ -142,7 +142,7 @@ function StepNavigator() {
           transition={stepTransition}
           className="w-full h-full"
         >
-          <main className="flex-1 flex items-start justify-center w-full h-full px-4 sm:px-6 lg:px-8 pt-[80px] pb-4 md:pt-8 md:pb-8 lg:pt-12 lg:pb-12 overflow-y-auto">
+          <main className="flex-1 flex items-center md:items-start justify-center w-full h-full px-4 sm:px-6 lg:px-8 pt-[80px] pb-4 md:pt-44 md:pb-44 lg:pt-48 lg:pb-48 overflow-y-auto">
             {renderStep()}
           </main>
         </motion.div>

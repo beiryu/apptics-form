@@ -15,7 +15,7 @@ export default function Step09({ onNext, onStepClick }: Step09Props) {
   };
   return (
     <>
-      <section className="flex flex-col items-center justify-between gap-4 sm:gap-5 w-full max-w-[640px]">
+      <section className="flex flex-col items-center justify-center sm:justify-between gap-4 sm:gap-5 w-full max-w-[640px] -mt-60 md:mt-0">
         {/* Question and Buttons */}
         <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8 text-center">
           <div className="flex flex-col items-center gap-2 sm:gap-2.5">
@@ -26,7 +26,7 @@ export default function Step09({ onNext, onStepClick }: Step09Props) {
           </div>
           <div className="flex flex-col items-center justify-center gap-3 sm:gap-4 text-sm sm:text-base text-white font-inter w-full">
             {/* First Row */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4 w-full">
+            <div className="flex flex-col sm:flex-row items-center sm:items-stretch sm:items-start gap-3 sm:gap-4 w-full">
               <button
                 onClick={() =>
                   handleAnswer('Yes, we need MIDs/payment processing')
@@ -36,7 +36,7 @@ export default function Step09({ onNext, onStepClick }: Step09Props) {
                 <span className="text-base sm:text-lg tracking-[-0.03em] leading-6 sm:leading-7 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
                   ✅
                 </span>
-                <span className="text-base sm:text-lg tracking-[-0.03em] leading-6 sm:leading-7 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                <span className="text-base sm:text-lg tracking-[-0.03em] leading-6 sm:leading-7 font-medium whitespace-nowrap [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
                   Yes, we need MIDs/payment processing
                 </span>
               </button>
@@ -47,13 +47,13 @@ export default function Step09({ onNext, onStepClick }: Step09Props) {
                 <span className="text-base sm:text-lg tracking-[-0.03em] leading-6 sm:leading-7 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
                   ❌
                 </span>
-                <span className="text-base sm:text-lg tracking-[-0.03em] leading-6 sm:leading-7 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                <span className="text-base sm:text-lg tracking-[-0.03em] leading-6 sm:leading-7 font-medium whitespace-nowrap [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
                   No, we&apos;re good on payments
                 </span>
               </button>
             </div>
             {/* Second Row */}
-            <div className="flex items-start w-full sm:w-auto">
+            <div className="flex items-center sm:items-start w-full sm:w-auto">
               <button
                 onClick={() => handleAnswer('Not sure, I need advice')}
                 className="w-full sm:w-[350px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-2xl [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center py-2.5 px-4 sm:px-5 gap-2 sm:gap-2.5 cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
@@ -61,7 +61,7 @@ export default function Step09({ onNext, onStepClick }: Step09Props) {
                 <span className="text-base sm:text-lg tracking-[-0.03em] leading-6 sm:leading-7 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
                   ❓
                 </span>
-                <span className="text-base sm:text-lg tracking-[-0.03em] leading-6 sm:leading-7 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
+                <span className="text-base sm:text-lg tracking-[-0.03em] leading-6 sm:leading-7 font-medium whitespace-nowrap [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
                   Not sure, I need advice
                 </span>
               </button>
