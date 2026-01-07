@@ -200,7 +200,7 @@ function StepNavigator() {
             transition={stepTransition}
             className="absolute inset-0 w-full h-full"
           >
-            <main className="flex items-center justify-center w-full h-full p-4 md:p-8 -mt-20 md:-mt-24 overflow-y-auto">
+            <main className="flex items-center justify-center w-full h-full p-4 md:p-8 -mt-8 md:-mt-20 lg:-mt-24 overflow-y-auto">
               {renderStep()}
             </main>
           </motion.div>

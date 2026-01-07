@@ -38,7 +38,7 @@ export default function Step01({ onNext, onStepClick }: Step01Props) {
       </div>
 
       {/* CTA Section */}
-      <div className="flex flex-col items-center gap-2 sm:gap-3 shrink-0 text-sm sm:text-base">
+      <div className="flex flex-col items-center gap-2 sm:gap-3 shrink-0 text-sm sm:text-base w-full px-4 sm:px-0">
         <div className="flex items-center justify-center w-full sm:w-auto">
           <button
             className="h-[50px] shadow-[0px_145px_41px_rgba(54,_116,_217,_0.01),_0px_93px_37px_rgba(54,_116,_217,_0.04),_0px_52px_31px_rgba(54,_116,_217,_0.15),_0px_23px_23px_rgba(54,_116,_217,_0.26),_0px_6px_13px_rgba(54,_116,_217,_0.29)] rounded-2xl bg-white w-full sm:w-auto overflow-hidden shrink-0 flex items-center justify-center box-border isolate cursor-pointer transition-all duration-200 ease-in-out group p-0"
