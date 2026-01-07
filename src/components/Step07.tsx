@@ -15,7 +15,7 @@ export default function Step07({ onNext, onStepClick }: Step07Props) {
   };
   return (
     <>
-      <section className="flex flex-col items-center justify-center sm:justify-between gap-4 sm:gap-5 w-full max-w-[640px] -mt-60 md:mt-0">
+      <section className="flex flex-col items-center justify-center sm:justify-between gap-4 sm:gap-5 w-full max-w-[640px]">
         {/* Question and Buttons */}
         <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8 text-center">
           <h1 className="w-full text-2xl md:text-3xl lg:text-4xl xl:text-[42px] tracking-[-0.07em] leading-[1.1] sm:leading-[1.15] md:leading-[1.2] lg:leading-[48px] font-medium px-2 sm:px-0">

@@ -7,9 +7,9 @@ interface Step01Props {
 
 export default function Step01({ onNext, onStepClick }: Step01Props) {
   return (
-    <section className="flex flex-col items-center justify-center sm:justify-start gap-4 sm:gap-6 md:gap-8 w-full -mt-60 md:mt-0 lg:-mt-8">
+    <section className="flex flex-col items-center justify-center sm:justify-start gap-4 sm:gap-6 md:gap-8 w-full">
       {/* Badge */}
-      <div className="rounded-[14px] bg-white border border-[#D3D8E5] overflow-hidden flex items-center py-1.5 px-3 sm:py-2 sm:px-4 shrink-0 font-inter">
+      <div className="rounded-[14px] bg-white border border-[#F1F1F1] overflow-hidden flex items-center py-1.5 px-3 sm:py-2 sm:px-4 shrink-0 font-inter">
         <div className="text-xs sm:text-sm tracking-[-0.02em] leading-4 sm:leading-5 capitalize">
           Book a call with the team
         </div>
@@ -38,15 +38,31 @@ export default function Step01({ onNext, onStepClick }: Step01Props) {
       </div>
 
       {/* CTA Section */}
-      <div className="flex flex-col items-center gap-2 sm:gap-3 shrink-0 text-sm sm:text-base text-white">
-        <div className="flex items-start w-full sm:w-auto">
+      <div className="flex flex-col items-center gap-2 sm:gap-3 shrink-0 text-sm sm:text-base">
+        <div className="flex items-center justify-center w-full sm:w-auto">
           <button
-            className="w-full sm:w-[325px] min-h-[44px] shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-2xl [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden shrink-0 flex items-center justify-center py-2.5 px-5 cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset]"
+            className="h-[50px] shadow-[0px_145px_41px_rgba(54,_116,_217,_0.01),_0px_93px_37px_rgba(54,_116,_217,_0.04),_0px_52px_31px_rgba(54,_116,_217,_0.15),_0px_23px_23px_rgba(54,_116,_217,_0.26),_0px_6px_13px_rgba(54,_116,_217,_0.29)] rounded-2xl bg-white w-full sm:w-auto overflow-hidden shrink-0 flex items-center justify-center box-border isolate cursor-pointer transition-all duration-200 ease-in-out group p-0"
             onClick={onNext}
           >
-            <div className="flex items-center justify-center gap-2 text-sm sm:text-base tracking-[-0.03em] leading-6 sm:leading-7 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
-              <span>👉</span>
-              <span>HELP ME SCALE</span>
+            <div className="text-center w-full h-full rounded-2xl bg-[linear-gradient(147deg,rgba(78,168,247,1)_0%,rgba(58,56,153,1)_100%)] group-hover:bg-[linear-gradient(147deg,#EAA9C2_0%,#F04986_100%)] flex items-center justify-center transition-all duration-200 ease-in-out [box-shadow:inset_0px_0px_40px_rgba(255,255,255,0.6),inset_0px_0px_20px_rgba(255,255,255,0.5),inset_0px_2px_0px_rgba(255,255,255,0.7)]">
+              <div className="flex items-center justify-center gap-3 px-6 py-0">
+                <span className="text-white text-base tracking-[-0.03em] leading-6 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] whitespace-nowrap">
+                  HELP ME SCALE
+                </span>
+                <svg
+                  width="16"
+                  height="14"
+                  viewBox="0 0 16 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="shrink-0"
+                >
+                  <path
+                    d="M8.293 0.292732C8.6591 -0.0733776 9.2381 -0.0959775 9.6309 0.224373L9.707 0.292732L15.707 6.2927L15.7754 6.3689C16.0957 6.7617 16.0731 7.3407 15.707 7.7068L9.707 13.7068C9.3165 14.0973 8.6835 14.0973 8.293 13.7068C7.9025 13.3163 7.9025 12.6833 8.293 12.2927L12.5859 7.9998H1C0.44772 7.9998 0 7.552 0 6.9998C0 6.4475 0.44772 5.9998 1 5.9998H12.5859L8.293 1.7068L8.2246 1.63063C7.9043 1.23785 7.9269 0.658852 8.293 0.292732Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
             </div>
           </button>
         </div>
