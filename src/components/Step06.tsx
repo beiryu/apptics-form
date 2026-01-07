@@ -15,7 +15,7 @@ export default function Step06({ onNext, onStepClick }: Step06Props) {
   };
   return (
     <>
-      <section className="flex flex-col items-center justify-center sm:justify-between gap-4 sm:gap-5 w-full max-w-3xl -mt-60 md:-mt-24">
+      <section className="flex flex-col items-center justify-center sm:justify-between gap-4 sm:gap-5 w-full max-w-3xl -mt-60 md:-mt-24 lg:-mt-32">
         {/* Question and Options */}
         <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8 text-center">
           {/* Question Header */}

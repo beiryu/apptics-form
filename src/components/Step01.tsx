@@ -7,7 +7,7 @@ interface Step01Props {
 
 export default function Step01({ onNext, onStepClick }: Step01Props) {
   return (
-    <section className="flex flex-col items-center justify-center sm:justify-start gap-4 sm:gap-6 md:gap-8 w-full -mt-60 md:mt-0">
+    <section className="flex flex-col items-center justify-center sm:justify-start gap-4 sm:gap-6 md:gap-8 w-full -mt-60 md:mt-0 lg:-mt-8">
       {/* Badge */}
       <div className="rounded-[14px] bg-white border border-[#D3D8E5] overflow-hidden flex items-center py-1.5 px-3 sm:py-2 sm:px-4 shrink-0 font-inter">
         <div className="text-xs sm:text-sm tracking-[-0.02em] leading-4 sm:leading-5 capitalize">
