@@ -133,7 +133,7 @@ export default function Step12({}: Step12Props) {
       {/* Form Section */}
       <form className="flex flex-col items-stretch gap-3 sm:gap-4 w-full max-w-md text-left text-sm sm:text-[15px]">
         {/* Name Input */}
-        <div className="w-full rounded-num-16 bg-darkslategray-300 border-darkslategray-200 border-solid border-[1px] box-border overflow-hidden flex items-center py-3 px-4 gap-2.5 transition-all duration-150 ease-in-out focus-within:border-cornflowerblue-100 focus-within:shadow-[0px_0px_0px_3px_rgba(78,168,247,0.1)] focus-within:bg-white">
+        <div className="w-full rounded-num-16 bg-darkslategray-300 border-darkslategray-200 border-solid border-[1px] box-border overflow-hidden flex items-center py-3 px-4 gap-2.5 transition-all duration-150 ease-in-out focus-within:border-cornflowerblue-100 focus-within:shadow-[0px_0px_0px_3px_rgba(78,168,247,0.1)]">
           <svg
             width="20"
             height="20"
@@ -161,7 +161,7 @@ export default function Step12({}: Step12Props) {
         </div>
 
         {/* Email Input */}
-        <div className="w-full rounded-num-16 bg-darkslategray-300 border-darkslategray-200 border-solid border-[1px] box-border overflow-hidden flex items-center py-3 px-4 gap-2.5 transition-all duration-150 ease-in-out focus-within:border-cornflowerblue-100 focus-within:shadow-[0px_0px_0px_3px_rgba(78,168,247,0.1)] focus-within:bg-white">
+        <div className="w-full rounded-num-16 bg-darkslategray-300 border-darkslategray-200 border-solid border-[1px] box-border overflow-hidden flex items-center py-3 px-4 gap-2.5 transition-all duration-150 ease-in-out focus-within:border-cornflowerblue-100 focus-within:shadow-[0px_0px_0px_3px_rgba(78,168,247,0.1)]">
           <svg
             width="20"
             height="20"
@@ -259,7 +259,7 @@ export default function Step12({}: Step12Props) {
         </div>
 
         {/* Contact Info Input */}
-        <div className="w-full rounded-num-16 bg-darkslategray-300 border-darkslategray-200 border-solid border-[1px] box-border overflow-hidden flex items-center py-3 px-4 gap-2.5 transition-all duration-150 ease-in-out focus-within:border-cornflowerblue-100 focus-within:shadow-[0px_0px_0px_3px_rgba(78,168,247,0.1)] focus-within:bg-white">
+        <div className="w-full rounded-num-16 bg-darkslategray-300 border-darkslategray-200 border-solid border-[1px] box-border overflow-hidden flex items-center py-3 px-4 gap-2.5 transition-all duration-150 ease-in-out focus-within:border-cornflowerblue-100 focus-within:shadow-[0px_0px_0px_3px_rgba(78,168,247,0.1)]">
           {contactMethod === 'telegram' ? (
             <svg
               width="20"
@@ -311,12 +311,38 @@ export default function Step12({}: Step12Props) {
         data-cal-config={JSON.stringify(getCalConfig())}
         onClick={handleFormSubmit}
         disabled={!name || !email || !contactInfo}
-        className="w-full sm:w-[350px] min-h-[44px] h-auto sm:h-12 shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center py-2.5 px-4 sm:px-5 text-sm sm:text-base text-white cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] disabled:opacity-50 disabled:cursor-not-allowed"
+        className="btn-shake w-full sm:w-[350px] min-h-[44px] h-auto sm:h-12 shadow-[0px_2px_1px_rgba(0,_0,_0,_0.35),_0px_6px_10px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] rounded-num-16 [background:linear-gradient(180deg,_#525252,_#141414)] border-black border-solid border-[1px] box-border overflow-hidden flex items-center justify-center py-2.5 px-4 sm:px-5 text-sm sm:text-base text-white cursor-pointer transition-all duration-200 ease-in-out hover:shadow-[0px_4px_2px_rgba(0,_0,_0,_0.4),_0px_8px_15px_rgba(0,_0,_0,_0.35),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] hover:brightness-105 active:scale-[0.98] active:shadow-[0px_1px_1px_rgba(0,_0,_0,_0.4),_0px_4px_8px_rgba(0,_0,_0,_0.3),_0px_1.5px_1px_rgba(255,_255,_255,_0.97)_inset] disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <span className="tracking-num--0_03 leading-6 sm:leading-7 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)]">
           Book Scaling Call
         </span>
       </button>
+
+      <style jsx>{`
+        .btn-shake {
+          transform-origin: top center;
+          animation: bell-shake 2s ease-in-out infinite;
+        }
+        @keyframes bell-shake {
+          0%,
+          80%,
+          100% {
+            transform: rotate(0deg);
+          }
+          82% {
+            transform: rotate(-0.5deg);
+          }
+          86% {
+            transform: rotate(0.5deg);
+          }
+          90% {
+            transform: rotate(-0.3deg);
+          }
+          94% {
+            transform: rotate(0.3deg);
+          }
+        }
+      `}</style>
     </section>
   );
 }
