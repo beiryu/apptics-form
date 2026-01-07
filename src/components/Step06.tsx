@@ -15,7 +15,7 @@ export default function Step06({ onNext, onStepClick }: Step06Props) {
   };
   return (
     <>
-      <section className="flex flex-col items-center justify-center sm:justify-between gap-4 sm:gap-5 w-full max-w-3xl -mt-60 md:mt-0">
+      <section className="flex flex-col items-center justify-center sm:justify-between gap-4 sm:gap-5 w-full max-w-3xl -mt-60 md:-mt-24">
         {/* Question and Options */}
         <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8 text-center">
           {/* Question Header */}
@@ -29,7 +29,7 @@ export default function Step06({ onNext, onStepClick }: Step06Props) {
           </div>
 
           {/* Options Grid */}
-          <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8 text-center sm:text-left text-sm sm:text-num-15 text-white font-inter">
+          <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8 text-center sm:text-left text-xs sm:text-num-15 text-white font-inter">
             <div className="flex flex-wrap justify-center gap-3 sm:gap-4 w-full">
               <button
                 onClick={() => handleAnswer('$10K - $50K monthly on ads')}

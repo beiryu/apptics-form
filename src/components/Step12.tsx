@@ -115,7 +115,7 @@ export default function Step12({}: Step12Props) {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center gap-6 sm:gap-8 w-full max-w-4xl -mt-60 md:mt-0">
+    <section className="flex flex-col items-center justify-center gap-6 sm:gap-8 w-full max-w-4xl -mt-60 md:-mt-24">
       {/* Header Section */}
       <header className="flex flex-col items-center gap-4 sm:gap-6 w-full text-center">
         <h1 className="w-full text-2xl md:text-3xl lg:text-4xl xl:text-[42px] tracking-[-0.07em] leading-[1.1] sm:leading-[1.15] md:leading-[1.2] lg:leading-[48px] font-medium font-geist px-2 sm:px-0">

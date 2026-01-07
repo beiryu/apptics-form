@@ -128,7 +128,7 @@ export default function Step03({ onNext, onStepClick }: Step03Props) {
 
   return (
     <>
-      <section className="flex flex-col items-center justify-center sm:justify-between gap-4 sm:gap-5 w-full max-w-5xl -mt-60 md:mt-0">
+      <section className="flex flex-col items-center justify-center sm:justify-between gap-4 sm:gap-5 w-full max-w-5xl -mt-30 md:-mt-32">
         {/* Question and Options */}
         <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8 text-center">
           {/* Question Header */}
