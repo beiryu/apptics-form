@@ -88,41 +88,50 @@ export default function Step03({ onNext, onStepClick }: Step03Props) {
       id: 1,
       icon: '💳',
       text: "We don't have subscriptions or MRR setup yet",
+      mobileText: 'No subscriptions or MRR setup yet',
     },
     {
       id: 2,
       icon: '📉',
       text: "We can't produce enough winning creatives / ads don't scale profitably",
+      mobileText: "Ads & creative don't scale profitably",
     },
     {
       id: 3,
       icon: '🚫',
       text: 'Chargebacks or failed payments are killing margins',
+      mobileText: 'Chargebacks & failed payments kill margins',
     },
     {
       id: 4,
       icon: '🏦',
       text: 'We need payment processing',
+      mobileText: 'Need of reliable payment processing',
     },
     {
       id: 5,
       icon: '🛑',
       text: 'We just got banned on Shopify payments/Stripe',
+      mobileText: 'Got banned on Shopify Payments/Stripe',
     },
     {
       id: 6,
       icon: '💰',
       text: "We aren't maximizing for AOV & LTV",
+      mobileText: 'Not fully optimizing AOV/LTV',
     },
     {
       id: 7,
       icon: '🔐',
       text: 'We want data security and ownership of our subscribers (MRR)',
+      mobileText: 'Need data security & ownership of subs (MRR)',
     },
     {
       id: 8,
       icon: '📦',
       text: 'We have operational bottlenecks (fulfillment, shipping, sourcing issues)',
+      mobileText:
+        'Operational bottlenecks (fulfillment, shipping, sourcing issues)',
     },
   ];
 
@@ -156,11 +165,14 @@ export default function Step03({ onNext, onStepClick }: Step03Props) {
                         : '[background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] hover:bg-opacity-40'
                     }`}
                   >
-                    <div className="text-lg sm:text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)] shrink-0">
+                    <div className="text-base sm:text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)] shrink-0">
                       {option.icon}
                     </div>
                     <div className="flex-1 text-[13px] sm:text-num-15 tracking-num--0_03 leading-5 sm:leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-left">
-                      {option.text}
+                      <span className="block sm:hidden">
+                        {option.mobileText}
+                      </span>
+                      <span className="hidden sm:block">{option.text}</span>
                     </div>
                     <div className="shrink-0 hidden sm:block">
                       {isSelected ? <CheckIcon /> : <UncheckIcon />}
