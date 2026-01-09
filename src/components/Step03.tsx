@@ -143,14 +143,14 @@ export default function Step03({ onNext, onStepClick }: Step03Props) {
 
           {/* Options Grid */}
           <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8 text-center sm:text-left text-base sm:text-lg md:text-num-22_5 font-inter w-full">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full max-w-3xl">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full max-w-3xl">
               {options.map(option => {
                 const isSelected = selectedOptions.has(option.id);
                 return (
                   <button
                     key={option.id}
                     onClick={() => toggleOption(option.id)}
-                    className={`w-full min-h-[44px] rounded-num-16 box-border overflow-hidden flex items-center justify-center sm:justify-start py-2 sm:py-num-12 px-3 sm:px-num-20 gap-2 sm:gap-2.5 cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-sm active:scale-[0.99] ${
+                    className={`w-full min-h-[44px] rounded-num-16 box-border overflow-hidden flex items-center justify-start py-2 sm:py-num-12 px-3 sm:px-num-20 gap-2 sm:gap-2.5 cursor-pointer transition-all duration-200 ease-in-out hover:scale-[1.01] hover:shadow-sm active:scale-[0.99] ${
                       isSelected
                         ? 'bg-dodgerblue-200 border-dodgerblue-100 border-solid border-[2px]'
                         : '[background:linear-gradient(180deg,_rgba(235,_237,_240,_0.25),_rgba(235,_237,_240,_0))] border-gray border-solid border-[1px] hover:bg-opacity-40'
@@ -159,10 +159,10 @@ export default function Step03({ onNext, onStepClick }: Step03Props) {
                     <div className="text-lg sm:text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)] shrink-0">
                       {option.icon}
                     </div>
-                    <div className="flex-1 text-sm sm:text-num-15 tracking-num--0_03 leading-5 sm:leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-center sm:text-left">
+                    <div className="flex-1 text-sm sm:text-num-15 tracking-num--0_03 leading-5 sm:leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-left">
                       {option.text}
                     </div>
-                    <div className="shrink-0">
+                    <div className="shrink-0 hidden sm:block">
                       {isSelected ? <CheckIcon /> : <UncheckIcon />}
                     </div>
                   </button>
