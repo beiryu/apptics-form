@@ -159,7 +159,7 @@ export default function Step03({ onNext, onStepClick }: Step03Props) {
                     <div className="text-lg sm:text-xl tracking-num--0_03 leading-num-33 font-medium [text-shadow:0px_1.5px_2.25px_rgba(0,_0,_0,_0.12)] shrink-0">
                       {option.icon}
                     </div>
-                    <div className="flex-1 text-sm sm:text-num-15 tracking-num--0_03 leading-5 sm:leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-left">
+                    <div className="flex-1 text-[13px] sm:text-num-15 tracking-num--0_03 leading-5 sm:leading-num-22 font-medium [text-shadow:0px_1px_1.5px_rgba(0,_0,_0,_0.12)] text-left">
                       {option.text}
                     </div>
                     <div className="shrink-0 hidden sm:block">
